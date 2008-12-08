@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  The parent maven for the ejb3 tutorials project
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!--  The JBoss server profile which will be used by the tutorials for
+	deploying the application. Individual tutorials can override this value
+	in their pom.xml depending on their need. For ex: The "Clustering" tutorial
+	does not require clustering, so it's pom.xml is going to override this property 
+	with "all" server profile -->    
+  <properties>
+    <jboss.server.config>default</jboss.server.config>
+  </properties>
+
+  <!-- Parent - The jboss-ejb3-build will act as a parent
+   
+   -->
+
+  <parent>
+    <groupId>org.jboss.ejb3</groupId>
+    <artifactId>jboss-ejb3-build</artifactId>
+    <version>1.0.0-Beta8</version>
+  </parent>
+
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.jboss.ejb3</groupId>
+  <artifactId>jboss-ejb3-tutorial-parent</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>JBoss EJB3 Tutorial Aggregator</name>
+  <url>http://labs.jboss.com/jbossejb3/</url>
+  <description>
+    Tutorial for JBoss EJB3
+  </description>
+
+
+	
+  
+  <build>
+  <!--  The project is current not in the Maven standard structure. So
+  let's tell Maven where the source resides for each module -->
+   <sourceDirectory>./src</sourceDirectory>
+   
+   <plugins>
+     <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-compiler-plugin</artifactId>
+       <configuration>
+       <!--  The client/* files are meant for the EJB client. No
+       need to include them in packaging -->
+         <excludes>
+           <!--  <exclude>**/client/**/*.java</exclude> -->
+         </excludes>
+       </configuration>
+     </plugin>
+     
+     <!--  Run specific Ant tasks through this plugin -->
+     <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+          <!--  We want to copy the packaged jar files to the JBoss deploy folder during install -->
+            <phase>install</phase>
+            <configuration>
+            	<!--  Copy the deployable to the deploy folder of the appropriate server
+            	profile in JBoss. 
+            	- The JBOSS_HOME is expected to be set as a environment variable by the user.
+            	- The jboss.server.config is set at the pom level and can be overriden by the pom.xml of
+            	  individual modules (tutorials)  -->
+              <tasks>
+				<copy file="${pom.build.directory}/${pom.artifactId}.${pom.packaging}" todir="${JBOSS_HOME}/server/${jboss.server.config}/deploy"/>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <!--  Run the java client  -->
+      <!--  For some weird reason, this plugin is not resolved.
+      Looks like some issue with the repository that is being picked up for this plugin download.
+      The http://repository.jboss.org/maven2/ repository has the org.codehaus.mojo groupId but does
+      not have the exec-maven-plugin artifact. 
+      The http://repo1.maven.org/maven2 repository has this artifact, but Maven-2.0.9 for some
+      reason, does not download it. Needs more investigation. Commented out for the time-being.
+       -->
+     <!--   <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.1-beta-1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <arguments>
+            <argument>-classpath</argument>
+            
+            <classpath/>
+            <argument>${ejb3.tutorial.client}</argument>
+            
+          </arguments>
+        </configuration>
+        
+      </plugin> -->
+   </plugins>
+   
+  </build>
+  <dependencies>
+  	  <dependency>
+        <groupId>org.jboss.javaee</groupId>
+        <artifactId>jboss-ejb-api</artifactId>
+      </dependency>
+       <dependency>
+        <groupId>org.jboss.javaee</groupId>
+        <artifactId>jboss-persistence-api</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.javaee</groupId>
+        <artifactId>jboss-jms-api</artifactId>
+      </dependency>
+  	
+  </dependencies>
+
+
+</project>
