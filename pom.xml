@@ -62,9 +62,11 @@
      <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <executions>
+        
           <execution>
-          <!--  We want to copy the packaged jar files to the JBoss deploy folder during install -->
-            <phase>install</phase>
+          <id>deploy-tutorial</id>
+          <!--  We want to copy the packaged jar files to the JBoss deploy folder during package -->
+            <phase>package</phase>
             <configuration>
             	<!--  Copy the deployable to the deploy folder of the appropriate server
             	profile in JBoss. 
@@ -79,43 +81,52 @@
               <goal>run</goal>
             </goals>
           </execution>
+          
+          <execution>
+          <id>run-tutorial</id>
+          <!--  Run the client -->
+            <phase>install</phase>
+            <configuration>
+              <!--  Individual child tutorials, will provide the ${ejb3.tutorial.client} property value  -->
+              <tasks>
+              	<!--  The classpath for the tutorial client -->
+              	<path id="ejb3.tutorial.classpath">
+      				<!-- Only the jbossall-client.jar should ideally be sufficient -->
+	      			<fileset dir="${JBOSS_HOME}/client">
+	         			<include name="**/jbossall-client.jar"/>
+	      			</fileset>
+	      			<pathelement location="${build.outputDirectory}"/>
+   				</path>
+   				<echo message="*********************************** JBoss EJB3 Tutorials ***********************************" />
+   				<echo message="**** Running ${ejb3.tutorial.client}" />
+				<java classname="${ejb3.tutorial.client}" fork="yes" dir=".">
+         			<classpath refid="ejb3.tutorial.classpath"/> 
+      			</java>
+      			<echo message="**** Successful completion of tutorial!" />
+      			<echo message="********************************************************************************************" />
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+          
         </executions>
       </plugin>
       
-      <!--  Run the java client  -->
-      <!--  For some weird reason, this plugin is not resolved.
-      Looks like some issue with the repository that is being picked up for this plugin download.
-      The http://repository.jboss.org/maven2/ repository has the org.codehaus.mojo groupId but does
-      not have the exec-maven-plugin artifact. 
-      The http://repo1.maven.org/maven2 repository has this artifact, but Maven-2.0.9 for some
-      reason, does not download it. Needs more investigation. Commented out for the time-being.
-       -->
-     <!--   <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.1-beta-1</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <executable>java</executable>
-          <arguments>
-            <argument>-classpath</argument>
-            
-            <classpath/>
-            <argument>${ejb3.tutorial.client}</argument>
-            
-          </arguments>
-        </configuration>
-        
-      </plugin> -->
    </plugins>
-   
+   <!--  Include the jndi.properties and the log4j.xml in the classpath -->
+   <resources>
+   	<resource>
+   		<directory>./</directory>
+   		<includes>
+   			<include>jndi.properties</include>
+   			<include>log4j.xml</include>
+   		</includes>
+   	</resource>
+   </resources>
   </build>
+
   <dependencies>
   	  <dependency>
         <groupId>org.jboss.javaee</groupId>
