@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter id="Stateless Beans">
+	<title>Introduction to EJB3 Stateless Beans</title>
+
+	<para>
+It is very easy to create a Stateless Bean with EJB 3.0.  All bean types are homeless in EJB 3.0 so all you have to do to
+create a Stateless bean is to create a bean class and have it implement at least one interface. Take a look at <ulink url="http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/trunk/docs/tutorial/stateless/src/org/jboss/tutorial/stateless/bean/CalculatorBean.java">CalculatorBean.java</ulink>
+	</para>
+
+	<para>
+The first thing to notice is that the class is tagged as <literal>@Stateless</literal>.  This marks the class as a stateless bean and
+the deployer will deploy that class as a stateless bean EJB container.
+	</para>
+
+	<para>
+CalculatorBean also implements two interfaces.  One is the remote interface of the EJB the other is the local interface.
+	</para>
+
+	<para>
+Take a look at <ulink url="http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/trunk/docs/tutorial/stateless/src/org/jboss/tutorial/stateless/bean/CalculatorRemote.java">CalculatorRemote.java</ulink>.  To define this as the remote interface of Calculator bean
+you either annotate the bean class and specify what the remote interfaces are, or you annotate each remote interface the bean class
+implements with @javax.ejb.Remote. only need to annotate the bean class with @javax.ejb.Remote.  Similar for <ulink url="http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/trunk/docs/tutorial/stateless/src/org/jboss/tutorial/stateless/bean/CalculatorLocal.java">CalculatorLocal.java</ulink> as you need to annotate the bean class with <literal>@javax.ejb.Local</literal> for it to be the local interface of the CalculatorBean.
+	</para>
+
+	<para>
+		<sect4>
+JNDI Bindings
+		</sect4>
+The Calculator bean will have two JNDI bindings for the remote and Local interface.  By default, JBoss will use ejbName/local and ejbName/remote for the local and
+remote interfaces, respectively.
+	</para>
+
+	<para>
+		<sect4>
+Client
+		</sect4>
+Open up <ulink link="http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/trunk/docs/tutorial/stateless/src/org/jboss/tutorial/stateless/client/Client.java">Client.java</ulink>.  You'll see that it looks up the stateless bean under "ejbName/remote". Also notice that there is no Home interface and you can begin executing on the stateless bean right away.
+
+	</para>
+
+	<para>
+		<sect4>
+Building and Running
+		</sect4>
+		
+		<note>
+			<para>
+To build and run the example, make sure you have installed JBoss 5.x and have JBoss running. See the <xref linkend="JBossAS5">installation section</xref> for details.
+			</para>
+		</note>
+
+		<sect5>
+Ant Users:
+		</sect5>
+	<programlisting>
+$ ant
+$ ant run
+
+	</programlisting>
+
+	<sect5>
+Maven Users:
+	</sect5>
+	
+	<programlisting>
+$ mvn clean install
+	</programlisting>
+
+	</para>
+</chapter>
+	
+
