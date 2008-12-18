@@ -22,23 +22,12 @@
 package org.jboss.tutorial.stateless.bean;
 
 import javax.ejb.Stateless;
-import javax.sql.DataSource;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
 @Stateless
 public class CalculatorBean implements CalculatorRemote, CalculatorLocal
 {
    public int add(int x, int y)
    {
-      try
-      {
-         DataSource ds = (DataSource)new InitialContext().lookup("java:/DefaultDS");
-      }
-      catch (NamingException e)
-      {
-         throw new RuntimeException(e);
-      }
       return x + y;
    }
 
