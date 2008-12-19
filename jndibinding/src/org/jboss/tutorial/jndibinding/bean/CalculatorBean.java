@@ -24,8 +24,9 @@ package org.jboss.tutorial.jndibinding.bean;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
-import org.jboss.annotation.ejb.LocalBinding;
-import org.jboss.annotation.ejb.RemoteBinding;
+
+import org.jboss.ejb3.annotation.LocalBinding;
+import org.jboss.ejb3.annotation.RemoteBinding;
 
 @Stateless
 @RemoteBinding(jndiBinding="Calculator")

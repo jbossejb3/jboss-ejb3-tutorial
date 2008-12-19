@@ -52,8 +52,13 @@
 	<module>init</module>	  		
 	
 	<!-- The tutorials go here -->
-	<module>stateless</module> 
-
+	<!--  FIXME: Temporarily commenting out the "injection" module, until one of the ordering issues
+	in maven plugin execution is resolved. See the comments in common/pom.xml for details
+	<module>injection</module>  -->
+	<module>jndibinding</module>
+	<module>stateful</module>
+	<module>stateless</module>
+	
 	<!-- Responsible for JBossAS shutdown -->
 	<module>shutdown</module>
   

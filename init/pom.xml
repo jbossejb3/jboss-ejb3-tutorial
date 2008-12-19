@@ -10,12 +10,19 @@
   <!-- Model Version -->
   <modelVersion>4.0.0</modelVersion>
 
+  <properties>
+    
+    <!--  Versions -->
+    <version.maven-jboss-as-control-plugin>0.1.0</version.maven-jboss-as-control-plugin>
+  </properties>
+
   <parent>
     <groupId>org.jboss.ejb3</groupId>
     <artifactId>jboss-ejb3-tutorial-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../common/</relativePath>
+    <relativePath>../</relativePath>
   </parent>
+
 
   
 
@@ -37,7 +44,7 @@
 		  	<plugin>
           		<groupId>org.jboss.maven.plugins.jbossas</groupId>
             		<artifactId>maven-jboss-as-control-plugin</artifactId>
-            		<version>0.1.0-SNAPSHOT</version>
+	            	<version>${version.maven-jboss-as-control-plugin}</version>
             	
             		<!-- Executions -->
             		<!-- 

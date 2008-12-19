@@ -22,6 +22,9 @@
   	 -->
   	<jboss.home>${JBOSS_HOME}</jboss.home>
     <jboss.server.config>default</jboss.server.config>
+    
+    <!--  Versions -->
+    <version.maven-jboss-as-control-plugin>0.1.0</version.maven-jboss-as-control-plugin>
   </properties>
 
   <!-- Parent - The jboss-ejb3-tutorial-parent (Aggregator) will act as a parent
@@ -54,12 +57,12 @@
    		<sourceDirectory>./src</sourceDirectory>
    
    		<plugins>
-			<!--  JBossAS Maven plugin for startup/shutdown
+			<!--  JBossAS Maven plugin for startup/shutdown/deploy/undeploy
 			and other AS control -->
 		  	<plugin>
           		<groupId>org.jboss.maven.plugins.jbossas</groupId>
             	<artifactId>maven-jboss-as-control-plugin</artifactId>
-            	<version>0.1.0-SNAPSHOT</version>
+            	<version>${version.maven-jboss-as-control-plugin}</version>
             	
             	<!-- Executions -->
             	<!-- 
@@ -121,6 +124,39 @@
           			</execution>
 		        </executions>
       		</plugin>
+      		
+      		<!--  Undeploy the tutorial after the client is run -->
+      		<!--  FIXME: The ordering of the plugin execution is not working in 2.0.9 Maven.
+      		For some reason, the "undeploy" is being triggered before the "deploy". This seems
+      		to be happening if the same plugin has more than one execution for the same phase. Needs more
+      		investigation. Commenting out for now  
+      		<plugin>
+          		<groupId>org.jboss.maven.plugins.jbossas</groupId>
+            	<artifactId>maven-jboss-as-control-plugin</artifactId>
+            	<version>${version.maven-jboss-as-control-plugin}</version>
+            	
+            	
+                <executions>
+              		   	<execution>
+        		        <id>undeploy-tutorial</id>
+                		<goals>
+                  			<goal>undeploy</goal>
+                		</goals>
+                		<phase>install</phase>
+                		<configuration>	
+                  			<serverConfigName>${jboss.server.config}</serverConfigName>
+                  			<files>
+                    			${pom.build.directory}/${pom.artifactId}.${pom.packaging}
+                  			</files>
+                  			<jboss.test.run>true</jboss.test.run>
+                		</configuration>
+              		</execution>
+				    
+			
+
+				</executions>
+
+			</plugin> -->
       		
       		<!-- Plugin to enforce JBOSS_HOME is set -->
       		<plugin>

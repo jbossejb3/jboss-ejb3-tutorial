@@ -13,13 +13,23 @@
 
 <project default="main" name="JBoss/EJB3 Tutorials">
 
+
 	<target name="main">
-		<antcall target="asynch" inheritRefs="true"/>
+		<!-- TODO: Uncomment individual tutorials as and when they are ready -->
+		
+		
+		
+		<antcall target="injection" inheritRefs="true"/>
+		<antcall target="jndibinding" inheritRefs="true"/>
+		<antcall target="stateful" inheritRefs="true"/>
+		<antcall target="stateless" inheritRefs="true"/>
+		
+		<!-- <antcall target="asynch" inheritRefs="true"/>
 		<antcall target="blob" inheritRefs="true"/>
 		<antcall target="callbacks" inheritRefs="true"/>
-		<antcall target="clusteredentity" inheritRefs="true"/>
+		<antcall target="clusteredentity" inheritRefs="true"/> -->
 		<!--antcall target="clustering" inheritRefs="true"/-->
-		<antcall target="composite" inheritRefs="true"/>
+		<!-- <antcall target="composite" inheritRefs="true"/>
 		<antcall target="consumer" inheritRefs="true"/>
 		<antcall target="consumer_deployment_descriptor" inheritRefs="true"/>
 		<antcall target="dependency" inheritRefs="true"/>
@@ -30,9 +40,9 @@
 		<antcall target="extended_pc" inheritRefs="true"/>
 		<antcall target="injection" inheritRefs="true"/>
 		<antcall target="interceptor" inheritRefs="true"/>
-		<antcall target="jboss_deployment_descriptor" inheritRefs="true"/>
+		<antcall target="jboss_deployment_descriptor" inheritRefs="true"/> -->
 		<!--antcall target="jca/inflow/swiftmq" inheritRefs="true"/-->
-		<antcall target="jndibinding" inheritRefs="true"/>
+		<!-- <antcall target="jndibinding" inheritRefs="true"/>
 		<antcall target="joininheritance" inheritRefs="true"/>
 		<antcall target="mdb" inheritRefs="true"/>
 		<antcall target="jndibinding" inheritRefs="true"/>
@@ -49,7 +59,7 @@
 		<antcall target="stateless" inheritRefs="true"/>
 		<antcall target="stateless_deployment_descriptor" inheritRefs="true"/>
 		<antcall target="tableperinheritance" inheritRefs="true"/>
-		<antcall target="timer" inheritRefs="true"/>
+		<antcall target="timer" inheritRefs="true"/> -->
 	</target>
 
 	<target name="asynch"> 
