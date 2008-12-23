@@ -41,21 +41,24 @@
    		<sourceDirectory>./src</sourceDirectory>
    
    		<plugins>
-   			<!--  FIXME: The plugin execution order when multiple plugins exist for the same phase is
-   			broken in Maven-2.0.9 (Forum thread http://markmail.org/message/hymzcxv77vrqjful
-   			JIRA issue http://jira.codehaus.org/browse/MNG-3719). Until the issue is fixed, here's how the 
-   			tutorials will be deployed and run:
-   			
-   				1) The tutorial will be deployed using the JBossAS plugin during the "verify" phase (which is before the
-   				"install" phase)
-   				2) The client will be run using the ant plugin during the "verify" phase
-   				3) The tutorial will be undeployed during the "install" phase
+   			<!--  
+   				Maven (2.0.9) has a limitation which does not allow the same plugin to appear twice
+   				for the same phase. As a result we cannot deploy (using JBossAS Maven plugin), 
+   				run the client(using the ant-run plugin) and undeploy (using JBossAS Maven plugin) as part
+   				of the same "install" phase. More details here 
+   				http://www.nabble.com/Plugin-execution-order-incorrect-in-Maven-2.0.9-when-multiple-plugins-are-associated-with-the-same-phase-td21113516.html#a21113516
    				
-   				Once the Maven issue is fixed, all these plugins should be run as part of the same phase (i.e. install), 
-   				in the following order:
-   				- Deploy tutorial
-   				- Run client
-   				- Undeploy tutorial
+   				
+   				And since we do not have a "pre-install" (where we could have deployed to JBossAS) and "post-install"
+   				(where we could have undeployed), let's rely on the following phases to deploy, run the client and
+   				finally undeploy:
+   				
+   				1) The tutorial will be deployed using the JBossAS plugin during the "pre-integration-test" phase (which is before the
+   				"integration-test" phase)
+   				2) The client will be run using the ant plugin during the "integration-test" phase
+   				3) The tutorial will be undeployed during the "post-integration-test" phase
+   				
+   				
    				
    			  -->
    			  
@@ -77,7 +80,7 @@
                 		<goals>
                   			<goal>deploy</goal>
                 		</goals>
-                		<phase>verify</phase>
+                		<phase>pre-integration-test</phase>
                 		<configuration>	
                   			<serverConfigName>${jboss.server.config}</serverConfigName>
                   			<files>
@@ -100,7 +103,7 @@
         		<executions>
         			<execution>
 	          			<id>run-tutorial</id>
-					    <phase>verify</phase>
+					    <phase>integration-test</phase>
 	            		<configuration>
 		              		<!--  Individual child tutorials, will provide the ${ejb3.tutorial.client} property value  -->
 		              		<tasks>
@@ -140,7 +143,7 @@
                 		<goals>
                   			<goal>undeploy</goal>
                 		</goals>
-                		<phase>install</phase>
+                		<phase>post-integration-test</phase>
                 		<configuration>	
                   			<serverConfigName>${jboss.server.config}</serverConfigName>
                   			<files>

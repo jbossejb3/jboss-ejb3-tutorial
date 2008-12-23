@@ -55,7 +55,9 @@
         		<executions>
           			<execution>
             			<id>enforce-property</id>
-						<phase>verify</phase>
+            			<!--  We need to enforce this when we use JBossAS during deploying the
+            			tutorial in pre-integration-test phase. See common/pom.xml for details -->
+						<phase>pre-integration-test</phase>
             			<goals>
               				<goal>enforce</goal>
             			</goals>
@@ -89,7 +91,7 @@
 			
 			<!-- The tutorials go here -->
 
-			<module>blob</module>
+		 	<module>blob</module>
 			<module>callbacks</module>
 			<module>entity</module>
 			<module>injection</module>  
