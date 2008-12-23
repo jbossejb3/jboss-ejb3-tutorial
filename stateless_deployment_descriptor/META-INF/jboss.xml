@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- FIXME: Does not work right now. http://www.jboss.com/index.html?module=bb&op=viewtopic&t=146304
+  
+ jboss xmlns="http://www.jboss.com/xml/ns/javaee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.jboss.org/j2ee/schema
+                            http://www.jboss.org/j2ee/schema/jboss_5_0.xsd"
+             version="5.0"> -->
+<jboss>      
+   <enterprise-beans>
+      <session>
+         <ejb-name>Calculator</ejb-name>
+         <jndi-name>org.jboss.tutorial.stateless_deployment_descriptor.bean.CalculatorRemote</jndi-name>
+         <local-jndi-name>org.jboss.tutorial.stateless_deployment_descriptor.bean.CalculatorLocal</local-jndi-name>
+      </session>
+   </enterprise-beans>
+</jboss>
