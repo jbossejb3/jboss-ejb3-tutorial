@@ -117,8 +117,9 @@
 		   						</path>
 		   						<echo message="*********************************** JBoss EJB3 Tutorials ***********************************" />
 		   						<echo message="**** Running ${ejb3.tutorial.client}" />
-								<java classname="${ejb3.tutorial.client}" fork="yes" dir="." failonerror="true">
-		         					<classpath refid="ejb3.tutorial.classpath"/> 
+		   						<java classname="${ejb3.tutorial.client}" fork="yes" dir="." failonerror="true">
+		         					<classpath refid="ejb3.tutorial.classpath"/>
+		         					<classpath refid="maven.runtime.classpath"/>
 		      					</java>
 		      					<echo message="********************************************************************************************" />
 		              		</tasks>
@@ -198,6 +199,8 @@
         	<groupId>org.jboss.javaee</groupId>
         	<artifactId>jboss-jms-api</artifactId>
       	</dependency>
+      
+      
   	
 	</dependencies>
   

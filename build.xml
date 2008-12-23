@@ -20,12 +20,19 @@
 		
 		<antcall target="blob" inheritRefs="true"/>
 		<antcall target="callbacks" inheritRefs="true"/>
+		<antcall target="composite" inheritRefs="true"/>
 		<antcall target="entity" inheritRefs="true"/>
+		<antcall target="extended_pc" inheritRefs="true"/>
 		<antcall target="injection" inheritRefs="true"/>
 		<antcall target="jndibinding" inheritRefs="true"/>
 		<antcall target="merge" inheritRefs="true"/>
+		<antcall target="relationships" inheritRefs="true"/>
+		<antcall target="secondary" inheritRefs="true"/>
+		<antcall target="singleinheritance" inheritRefs="true"/>
 		<antcall target="stateful" inheritRefs="true"/>
+		<antcall target="stateful_deployment_descriptor" inheritRefs="true"/>
 		<antcall target="stateless" inheritRefs="true"/>
+		<antcall target="stateless_deployment_descriptor" inheritRefs="true"/>
 		
 		<!-- <antcall target="asynch" inheritRefs="true"/>
 		<antcall target="blob" inheritRefs="true"/>
