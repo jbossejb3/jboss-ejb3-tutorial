@@ -84,7 +84,7 @@
 	<target name="blob">       
 		<echo message="---------------- Running blob ------------"/>
 		<ant dir="blob" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="blob" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="blob" antfile="build.xml" target="clean"/>
@@ -93,7 +93,7 @@
 	<target name="callbacks">     
 		<echo message="---------------- Running callbacks ------------"/>  
 		<ant dir="callbacks" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="callbacks" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="callbacks" antfile="build.xml" target="clean"/>
@@ -121,7 +121,7 @@
 	<target name="composite">   
 		<echo message="---------------- Running composite ------------"/>    
 		<ant dir="composite" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="composite" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="composite" antfile="build.xml" target="clean"/>
@@ -183,7 +183,7 @@
 	<target name="entity">       
 		<echo message="---------------- Running entity ------------"/>
 		<ant dir="entity" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="entity" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="entity" antfile="build.xml" target="clean"/>
@@ -192,7 +192,7 @@
 	<target name="extended_pc">       
 		<echo message="---------------- Running extended_pc ------------"/>
 		<ant dir="extended_pc" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="extended_pc" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="extended_pc" antfile="build.xml" target="clean"/>
@@ -201,7 +201,7 @@
 	<target name="injection">       
 		<echo message="---------------- Running injection ------------"/>
 		<ant dir="injection" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="injection" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="injection" antfile="build.xml" target="clean"/>
@@ -237,7 +237,7 @@
 	<target name="jndibinding">  
 		<echo message="---------------- Running jndibinding ------------"/>     
 		<ant dir="jndibinding" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="jndibinding" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="jndibinding" antfile="build.xml" target="clean"/>
@@ -273,7 +273,7 @@
 	<target name="merge">       
 		<echo message="---------------- Running merge ------------"/>
 		<ant dir="merge" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="merge" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="merge" antfile="build.xml" target="clean"/>
@@ -291,7 +291,7 @@
 	<target name="relationships">  
 		<echo message="---------------- Running relationships ------------"/>     
 		<ant dir="relationships" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="relationships" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="relationships" antfile="build.xml" target="clean"/>
@@ -300,7 +300,7 @@
 	<target name="secondary">   
 		<echo message="---------------- Running secondary ------------"/>    
 		<ant dir="secondary" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="secondary" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="secondary" antfile="build.xml" target="clean"/>
@@ -318,7 +318,7 @@
 	<target name="service"> 
 		<echo message="---------------- Running service ------------"/>      
 		<ant dir="service" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="service" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="service" antfile="build.xml" target="clean"/>
@@ -336,7 +336,7 @@
 	<target name="singleinheritance">  
 		<echo message="---------------- Running singleinheritance ------------"/>     
 		<ant dir="singleinheritance" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="singleinheritance" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="singleinheritance" antfile="build.xml" target="clean"/>
@@ -345,7 +345,7 @@
 	<target name="stateful">    
 		<echo message="---------------- Running stateful ------------"/>   
 		<ant dir="stateful" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="stateful" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="stateful" antfile="build.xml" target="clean"/>
@@ -354,7 +354,7 @@
 	<target name="stateful_deployment_descriptor"> 
 		<echo message="---------------- Running stateful_deployment_descriptor ------------"/>      
 		<ant dir="stateful_deployment_descriptor" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="stateful_deployment_descriptor" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="stateful_deployment_descriptor" antfile="build.xml" target="clean"/>
@@ -363,7 +363,7 @@
 	<target name="stateless">       
 		<echo message="---------------- Running stateless ------------"/>
 		<ant dir="stateless" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="stateless" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="stateless" antfile="build.xml" target="clean"/>
@@ -372,7 +372,7 @@
 	<target name="stateless_deployment_descriptor">     
 		<echo message="---------------- Running stateless_deployment_descriptor ------------"/>  
 		<ant dir="stateless_deployment_descriptor" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="stateless_deployment_descriptor" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="stateless_deployment_descriptor" antfile="build.xml" target="clean"/>
