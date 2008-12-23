@@ -6,15 +6,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<!--  The JBoss server profile which will be used by the tutorials for
-	deploying the application. Individual tutorials can override this value
-	in their pom.xml depending on their need. For ex: The "Clustering" tutorial
-	does not require clustering, so it's pom.xml is going to override this property 
-	with "all" server profile -->    
+	   
   <properties>
-    <jboss.server.config>default</jboss.server.config>
-  </properties>
-
+	  	<!--  The jboss.home "intermediate" property would not have been necessary, if
+	  	Maven's enforcer plugin supported enforcing setting of a "System" environment variable.
+	  	Details here http://markmail.org/message/jwfmtrjesuyag7bh
+	  	
+	  	This intermediate property is a workaround to use in the enforcer plugin to ensure that
+	  	the JBOSS_HOME is set. And now that we have an intermediate jboss.home, let's use this throughout
+	  	the pom instead of JBOSS_HOME.
+	  	 -->
+	  	<jboss.home>${JBOSS_HOME}</jboss.home>
+	  	<!--  The JBoss server profile which will be used by the tutorials for
+		deploying the application. Individual tutorials can override this value
+		in their pom.xml depending on their need. --> 
+	    <jboss.server.config>all</jboss.server.config>
+	    
+  	</properties>
   <!-- Parent - The jboss-ejb3-build will act as a parent
    
    -->
@@ -38,29 +46,60 @@
     Tutorial for JBoss EJB3
   </description>
 
-<modules>
-	<!-- The init module is responsible for starting up the JBossAS.
-	This is a bit ugly, since the init project does nothing other than triggering
-	a server start.	Maven doesn't have a "init" phase where we could have added
-	this server start activity. And we don't want to start the server for
-	every module (tutorial), hence this separate init module.
+	<build>
+		<plugins>
+			<!-- Plugin to enforce JBOSS_HOME is set -->
+      		<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-enforcer-plugin</artifactId>
+        		<executions>
+          			<execution>
+            			<id>enforce-property</id>
+						<phase>verify</phase>
+            			<goals>
+              				<goal>enforce</goal>
+            			</goals>
+            			<configuration>
+	              			<rules>
+	                			<requireProperty>
+	                  				<property>jboss.home</property>
+	                  				<message>"Please set JBOSS_HOME"</message>
+				                </requireProperty>
+	            			</rules>  
+	            			<fail>true</fail>
+            			</configuration>
+		          </execution>
+        		</executions>
+      		</plugin>
+      	</plugins>
+	</build>
+	
+	<modules>
+			<!-- The init module is responsible for starting up the JBossAS.
+			This is a bit ugly, since the init project does nothing other than triggering
+			a server start.	Maven doesn't have a "init" phase where we could have added
+			this server start activity. And we don't want to start the server for
+			every module (tutorial), hence this separate init module.
+		
+			The shutdown is similarly handled by a separate "shutdown" module which is
+			the last module to be called. If something fails before the shutdown module is
+			invoked, there's a Java Shutdownhook in the jbossas-server-manager which cleanly
+			shuts down the JBossAS -->
+			<module>init</module>
+			
+			<!-- The tutorials go here -->
 
-	The shutdown is similarly handled by a separate "shutdown" module which is
-	the last module to be called. If something fails before the shutdown module is
-	invoked, there's a Java Shutdownhook in the jbossas-server-manager which cleanly
-	shuts down the JBossAS -->
-	<module>init</module>	  		
-	
-	<!-- The tutorials go here -->
-	<!--  FIXME: Temporarily commenting out the "injection" module, until one of the ordering issues
-	in maven plugin execution is resolved. See the comments in common/pom.xml for details
-	<module>injection</module>  -->
-	<module>jndibinding</module>
-	<module>stateful</module>
-	<module>stateless</module>
-	
-	<!-- Responsible for JBossAS shutdown -->
-	<module>shutdown</module>
+			<module>blob</module>
+			<module>callbacks</module>
+			<module>entity</module>
+			<module>injection</module>  
+			<module>jndibinding</module> 
+			<module>merge</module>
+			<module>stateful</module>
+			<module>stateless</module>  
+
+			<!-- Responsible for JBossAS shutdown -->
+			<module>shutdown</module>
   
   </modules>
 	

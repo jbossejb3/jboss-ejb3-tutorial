@@ -6,26 +6,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<!--  The JBoss server profile which will be used by the tutorials for
-	deploying the application. Individual tutorials can override this value
-	in their pom.xml depending on their need. For ex: The "Clustering" tutorial
-	does not require clustering, so it's pom.xml is going to override this property 
-	with "all" server profile -->    
-  <properties>
-  	<!--  The jboss.home "intermediate" property would not have been necessary, if
-  	Maven's enforcer plugin supported enforcing setting of a "System" environment variable.
-  	Details here http://markmail.org/message/jwfmtrjesuyag7bh
-  	
-  	This intermediate property is a workaround to use in the enforcer plugin to ensure that
-  	the JBOSS_HOME is set. And now that we have an intermediate jboss.home, let's use this throughout
-  	the pom instead of JBOSS_HOME.
-  	 -->
-  	<jboss.home>${JBOSS_HOME}</jboss.home>
-    <jboss.server.config>default</jboss.server.config>
-    
-    <!--  Versions -->
-    <version.maven-jboss-as-control-plugin>0.1.0</version.maven-jboss-as-control-plugin>
-  </properties>
+	<properties>
+	  	<!--  Versions -->
+	    <version.maven-jboss-as-control-plugin>0.1.0</version.maven-jboss-as-control-plugin>
+  	</properties>
 
   <!-- Parent - The jboss-ejb3-tutorial-parent (Aggregator) will act as a parent
    
@@ -57,6 +41,24 @@
    		<sourceDirectory>./src</sourceDirectory>
    
    		<plugins>
+   			<!--  FIXME: The plugin execution order when multiple plugins exist for the same phase is
+   			broken in Maven-2.0.9 (Forum thread http://markmail.org/message/hymzcxv77vrqjful
+   			JIRA issue http://jira.codehaus.org/browse/MNG-3719). Until the issue is fixed, here's how the 
+   			tutorials will be deployed and run:
+   			
+   				1) The tutorial will be deployed using the JBossAS plugin during the "verify" phase (which is before the
+   				"install" phase)
+   				2) The client will be run using the ant plugin during the "verify" phase
+   				3) The tutorial will be undeployed during the "install" phase
+   				
+   				Once the Maven issue is fixed, all these plugins should be run as part of the same phase (i.e. install), 
+   				in the following order:
+   				- Deploy tutorial
+   				- Run client
+   				- Undeploy tutorial
+   				
+   			  -->
+   			  
 			<!--  JBossAS Maven plugin for startup/shutdown/deploy/undeploy
 			and other AS control -->
 		  	<plugin>
@@ -75,7 +77,7 @@
                 		<goals>
                   			<goal>deploy</goal>
                 		</goals>
-                		<phase>install</phase>
+                		<phase>verify</phase>
                 		<configuration>	
                   			<serverConfigName>${jboss.server.config}</serverConfigName>
                   			<files>
@@ -98,7 +100,7 @@
         		<executions>
         			<execution>
 	          			<id>run-tutorial</id>
-					    <phase>install</phase>
+					    <phase>verify</phase>
 	            		<configuration>
 		              		<!--  Individual child tutorials, will provide the ${ejb3.tutorial.client} property value  -->
 		              		<tasks>
@@ -112,7 +114,7 @@
 		   						</path>
 		   						<echo message="*********************************** JBoss EJB3 Tutorials ***********************************" />
 		   						<echo message="**** Running ${ejb3.tutorial.client}" />
-								<java classname="${ejb3.tutorial.client}" fork="yes" dir=".">
+								<java classname="${ejb3.tutorial.client}" fork="yes" dir="." failonerror="true">
 		         					<classpath refid="ejb3.tutorial.classpath"/> 
 		      					</java>
 		      					<echo message="********************************************************************************************" />
@@ -126,10 +128,6 @@
       		</plugin>
       		
       		<!--  Undeploy the tutorial after the client is run -->
-      		<!--  FIXME: The ordering of the plugin execution is not working in 2.0.9 Maven.
-      		For some reason, the "undeploy" is being triggered before the "deploy". This seems
-      		to be happening if the same plugin has more than one execution for the same phase. Needs more
-      		investigation. Commenting out for now  
       		<plugin>
           		<groupId>org.jboss.maven.plugins.jbossas</groupId>
             	<artifactId>maven-jboss-as-control-plugin</artifactId>
@@ -156,33 +154,8 @@
 
 				</executions>
 
-			</plugin> -->
+			</plugin>
       		
-      		<!-- Plugin to enforce JBOSS_HOME is set -->
-      		<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-enforcer-plugin</artifactId>
-        		<executions>
-          			<execution>
-            			<id>enforce-property</id>
-						<phase>install</phase>
-            			<goals>
-              				<goal>enforce</goal>
-            			</goals>
-            			<configuration>
-	              			<rules>
-	                			<requireProperty>
-	                  				<property>jboss.home</property>
-	                  				<message>"Please set JBOSS_HOME"</message>
-				                </requireProperty>
-	            			</rules>  
-	            			<fail>true</fail>
-            			</configuration>
-		          </execution>
-        		</executions>
-      		</plugin>
-      		
-      
 		</plugins>
   
   		<!--  Include the jndi.properties and the log4j.xml in the classpath -->
@@ -191,10 +164,19 @@
    				<!--  Relative to each child tutorial -->
    				<directory>./</directory>
    				<includes>
-   					<include>jndi.properties</include>
+   					<include>*.properties</include>
    					<include>log4j.xml</include>
    				</includes>
    			</resource>
+   			<resource>
+   				<!--  Relative to each child tutorial -->
+   				<directory>./META-INF</directory>
+   				<includes>
+   					<include>*.xml</include>
+   				</includes>
+   				<targetPath>META-INF</targetPath>
+   			</resource>
+   			
    		</resources>
   	</build>  
 

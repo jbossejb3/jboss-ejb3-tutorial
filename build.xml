@@ -18,9 +18,12 @@
 		<!-- TODO: Uncomment individual tutorials as and when they are ready -->
 		
 		
-		
+		<antcall target="blob" inheritRefs="true"/>
+		<antcall target="callbacks" inheritRefs="true"/>
+		<antcall target="entity" inheritRefs="true"/>
 		<antcall target="injection" inheritRefs="true"/>
 		<antcall target="jndibinding" inheritRefs="true"/>
+		<antcall target="merge" inheritRefs="true"/>
 		<antcall target="stateful" inheritRefs="true"/>
 		<antcall target="stateless" inheritRefs="true"/>
 		
