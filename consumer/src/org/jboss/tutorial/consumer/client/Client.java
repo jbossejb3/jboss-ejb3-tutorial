@@ -49,13 +49,15 @@ public class Client
       {
          // Call method1
          remote.method1("Remote method1 called", 1);
-
+         System.out.println("Remote method1 called");
+         
          // Call method2
          Map<String, String> map = new HashMap<String, String>();
          map.put("hello", "world");
          map.put("great", "ejb3");
 
          remote.method2("Remote method2 called", map);
+         System.out.println("Remote method2 called");
       }
       finally
       {
