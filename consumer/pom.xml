@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+
+
+
+	<!-- Model Version -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.jboss.ejb3</groupId>
+		<artifactId>jboss-ejb3-tutorial-common</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../common/</relativePath>
+	</parent>
+
+	<properties>
+		<ejb3.tutorial.client>org.jboss.tutorial.consumer.client.Client</ejb3.tutorial.client>
+	</properties>
+
+
+	<artifactId>jboss-ejb3-tutorial-consumer</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>JMS Consumers and Producers in JBoss</name>
+	<url>http://labs.jboss.com/jbossejb3/</url>
+	<description>
+    Tutorial about JBoss specific JMS Consumers and Producers
+  </description>
+
+	<build>
+		<!--
+			If child pom has a resources section then the resource section from
+			the parent is NOT inherited. So repeat the resources section from the
+			parent pom here. Additionally, add the queue-example-service.xml
+			(used to deploy the queue) into the META-INF folder of the output
+			artifact
+		-->
+
+		<!--  Include the jndi.properties and the log4j.xml in the classpath -->
+		<resources>
+			<!--
+				Include files from the root of the tutorial into the root of output
+				artifact jar
+			-->
+			<resource>
+
+				<directory>./</directory>
+				<includes>
+					<include>*.properties</include>
+					<include>log4j.xml</include>
+				</includes>
+			</resource>
+			<!--
+				Include xml files from the META-INF of the tutorial into the
+				META-INF folder of output artifact jar
+			-->
+			<resource>
+
+				<directory>./META-INF</directory>
+				<includes>
+					<include>*.xml</include>
+				</includes>
+				<targetPath>META-INF</targetPath>
+			</resource>
+
+			<!--
+				Include the queue-example-service.xml into the META-INF of the
+				packaged jar
+			-->
+			<resource>
+				<directory>./</directory>
+				<includes>
+					<include>queue-example-service.xml</include>
+				</includes>
+				<targetPath>META-INF</targetPath>
+			</resource>
+
+		</resources>
+	</build>
+
+</project>
