@@ -9,6 +9,7 @@
 	<properties>
 	  	<!--  Versions -->
 	    <version.maven-jboss-as-control-plugin>0.1.0</version.maven-jboss-as-control-plugin>
+	    <version.org.jboss.jbossas_jboss-as-client>5.0.0.GA</version.org.jboss.jbossas_jboss-as-client>
   	</properties>
 
   <!-- Parent - The jboss-ejb3-tutorial-parent (Aggregator) will act as a parent
@@ -22,6 +23,7 @@
     <relativePath>../</relativePath>
   </parent>
 
+	
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.ejb3</groupId>
@@ -187,19 +189,14 @@
 
 	<!-- Dependencies -->
 	<dependencies>
-  		<dependency>
-        	<groupId>org.jboss.javaee</groupId>
-        	<artifactId>jboss-ejb-api</artifactId>
-      	</dependency>
-       	<dependency>
-        	<groupId>org.jboss.javaee</groupId>
-        	<artifactId>jboss-persistence-api</artifactId>
-      	</dependency>
-      	<dependency>
-        	<groupId>org.jboss.javaee</groupId>
-        	<artifactId>jboss-jms-api</artifactId>
-      	</dependency>
+  		
       
+      <dependency>
+            <groupId>org.jboss.jbossas</groupId>
+            <artifactId>jboss-as-client</artifactId>
+            <version>${version.org.jboss.jbossas_jboss-as-client}</version>
+            <type>pom</type>
+        </dependency>
       
   	
 	</dependencies>

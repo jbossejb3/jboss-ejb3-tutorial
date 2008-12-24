@@ -19,8 +19,7 @@
 
   <properties>
     <ejb3.tutorial.client>org.jboss.tutorial.secondary.client.Client</ejb3.tutorial.client>
-    <!--  Versions -->
-    <version.org.hibernate_hibernate-core>[3.3.0.GA,)</version.org.hibernate_hibernate-core>
+    
   </properties>
 
 
@@ -32,15 +31,6 @@
   <description>
     Tutorial demonstrating the use of SecondaryTable in EJB3 Entities
   </description>
-  
-  <dependencies>
-  	<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-core</artifactId>
-  		<version>${version.org.hibernate_hibernate-core}</version>
-  		<scope>runtime</scope>
-  	</dependency>
-  </dependencies>
   
 
 </project>

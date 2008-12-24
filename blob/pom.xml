@@ -31,11 +31,5 @@
     Tutorial about Blob and Clob in EJB3
   </description>
   
-  <dependencies>
-  	<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-core</artifactId>
-  		<version>[3.3.0.GA,)</version>
-  	</dependency>
-  </dependencies>
+  
 </project>

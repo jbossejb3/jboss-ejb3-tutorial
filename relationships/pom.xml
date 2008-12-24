@@ -31,16 +31,6 @@
     Tutorial demonstrating relationship between Entities in EJB3
   </description>
   
-  <dependencies>
-  	<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-core</artifactId>
-  		<version>[3.3.0.GA,)</version>
-  		<scope>runtime</scope>
-  	</dependency>
-  </dependencies>
-  
-  
-
+ 
 
 </project>

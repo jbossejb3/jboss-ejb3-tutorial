@@ -19,8 +19,7 @@
 
   <properties>
     <ejb3.tutorial.client>org.jboss.tutorial.composite.client.Client</ejb3.tutorial.client>
-    <!--  Versions -->
-    <version.org.hibernate_hibernate-core>[3.3.0.GA,)</version.org.hibernate_hibernate-core>
+    
   </properties>
 
 
@@ -33,13 +32,6 @@
     Tutorial about composite IDs for entities in EJB3
   </description>
   
-  <dependencies>
-  	<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-core</artifactId>
-  		<version>${version.org.hibernate_hibernate-core}</version>
-  		<scope>runtime</scope>
-  	</dependency>
-  </dependencies>
+ 
   	
 </project>

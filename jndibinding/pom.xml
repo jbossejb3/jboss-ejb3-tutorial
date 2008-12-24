@@ -19,8 +19,7 @@
 
   <properties>
     <ejb3.tutorial.client>org.jboss.tutorial.jndibinding.client.Client</ejb3.tutorial.client>
-    <!--  Versions -->
-    <version.jboss-ejb3-ext-api>0.4</version.jboss-ejb3-ext-api>
+    
   </properties>
 
 
@@ -33,17 +32,5 @@
     Tutorial for binding EJB to a specific JNDI name
   </description>
   
-  
-  
-  <dependencies>
-  		<dependency>
-        	<groupId>org.jboss.ejb3</groupId>
-        	<artifactId>jboss-ejb3-ext-api</artifactId>
-        	<version>${version.jboss-ejb3-ext-api}</version>
-      	</dependency>
-       	
-  	
-	</dependencies>
-
-
+ 
 </project>
