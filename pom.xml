@@ -30,8 +30,7 @@
   <parent>
     <groupId>org.jboss.ejb3</groupId>
     <artifactId>jboss-ejb3-build</artifactId>
-    <!--  TODO: Use 1.0.0-Beta11 once its available http://www.jboss.com/index.html?module=bb&op=viewtopic&t=147117 -->
-    <version>1.0.0-Beta8</version>
+    <version>1.0.0-Beta10</version>
   </parent>
 
 
