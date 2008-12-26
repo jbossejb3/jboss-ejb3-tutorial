@@ -7,6 +7,7 @@
       <message-driven>
          <ejb-name>ExampleMDB</ejb-name>
          <destination-jndi-name>queue/tutorial/example</destination-jndi-name>
+         <depends>jboss.messaging.destination:service=Queue,name=tutorial</depends>
       </message-driven>
    </enterprise-beans>
 </jboss>
