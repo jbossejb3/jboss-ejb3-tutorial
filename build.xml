@@ -17,10 +17,12 @@
 	<target name="main">
 		<!-- TODO: Uncomment individual tutorials as and when they are ready -->
 		
-		
+		<antcall target="asynch" inheritRefs="true"/>
 		<antcall target="blob" inheritRefs="true"/>
 		<antcall target="callbacks" inheritRefs="true"/>
 		<antcall target="composite" inheritRefs="true"/>
+		<antcall target="consumer" inheritRefs="true"/>
+		<antcall target="consumer_deployment_descriptor" inheritRefs="true"/>
 		<antcall target="entity" inheritRefs="true"/>
 		<antcall target="extended_pc" inheritRefs="true"/>
 		<antcall target="injection" inheritRefs="true"/>
@@ -28,6 +30,7 @@
 		<antcall target="merge" inheritRefs="true"/>
 		<antcall target="relationships" inheritRefs="true"/>
 		<antcall target="secondary" inheritRefs="true"/>
+		<antcall target="security" inheritRefs="true"/>
 		<antcall target="singleinheritance" inheritRefs="true"/>
 		<antcall target="stateful" inheritRefs="true"/>
 		<antcall target="stateful_deployment_descriptor" inheritRefs="true"/>
@@ -75,7 +78,7 @@
 	<target name="asynch"> 
 		<echo message="---------------- Running asynch ------------"/>     
 		<ant dir="asynch" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="asynch" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="asynch" antfile="build.xml" target="clean"/>
@@ -130,7 +133,7 @@
 	<target name="consumer">   
 		<echo message="---------------- Running consumer ------------"/>    
 		<ant dir="consumer" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="consumer" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="consumer" antfile="build.xml" target="clean"/>
@@ -139,7 +142,7 @@
 	<target name="consumer_deployment_descriptor">   
 		<echo message="---------------- Running consumer_deployment_descriptor ------------"/>    
 		<ant dir="consumer_deployment_descriptor" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="consumer_deployment_descriptor" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="consumer_deployment_descriptor" antfile="build.xml" target="clean"/>
@@ -309,7 +312,7 @@
 	<target name="security"> 
 		<echo message="---------------- Running security ------------"/>      
 		<ant dir="security" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="security" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="security" antfile="build.xml" target="clean"/>

@@ -78,7 +78,7 @@
             	
                 <executions>
               		   	<execution>
-        		        <id>deploy-tutorial</id>
+              		   	<id>deploy-tutorial</id>
                 		<goals>
                   			<goal>deploy</goal>
                 		</goals>
@@ -143,7 +143,7 @@
                 <executions>
               		   	<execution>
         		        <id>undeploy-tutorial</id>
-                		<goals>
+        		        <goals>
                   			<goal>undeploy</goal>
                 		</goals>
                 		<phase>post-integration-test</phase>
@@ -166,6 +166,8 @@
   
   		<!--  Include the jndi.properties and the log4j.xml in the classpath -->
    		<resources>
+   			<!-- Include files from the root of the tutorial into the
+   			root of output artifact jar -->
    			<resource>
    				<!--  Relative to each child tutorial -->
    				<directory>./</directory>
@@ -174,8 +176,11 @@
    					<include>log4j.xml</include>
    				</includes>
    			</resource>
+   			<!--  Include xml files from the META-INF of the tutorial into the
+   			META-INF folder of output artifact jar
+   			 -->
    			<resource>
-   				<!--  Relative to each child tutorial -->
+   				
    				<directory>./META-INF</directory>
    				<includes>
    					<include>*.xml</include>
