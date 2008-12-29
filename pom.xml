@@ -96,10 +96,13 @@
 		 	<module>composite</module>
 		 	<module>consumer</module> 
 		 	<module>consumer_deployment_descriptor</module>
+		 	<module>embeddable</module>
 			<module>entity</module>
 			<module>extended_pc</module>
-			<module>injection</module>  
+			<module>injection</module>
+			<module>interceptor</module>  
 			<module>jndibinding</module> 
+			<module>mdb</module>
 			<module>mdb_deployment_descriptor</module>
 			<module>merge</module>
 			<module>relationships</module>
@@ -109,8 +112,10 @@
 			<module>stateful</module>
 			<module>stateful_deployment_descriptor</module>
 			<module>stateless</module>
-			<module>stateless_deployment_descriptor</module>  
-
+			<module>stateless_deployment_descriptor</module>
+			<module>timer</module>
+  
+ 
 			<!-- Responsible for JBossAS shutdown -->
 			<module>shutdown</module>
   

@@ -23,10 +23,13 @@
 		<antcall target="composite" inheritRefs="true"/>
 		<antcall target="consumer" inheritRefs="true"/>
 		<antcall target="consumer_deployment_descriptor" inheritRefs="true"/>
+		<antcall target="embeddable" inheritRefs="true"/>
 		<antcall target="entity" inheritRefs="true"/>
 		<antcall target="extended_pc" inheritRefs="true"/>
 		<antcall target="injection" inheritRefs="true"/>
+		<antcall target="interceptor" inheritRefs="true"/>
 		<antcall target="jndibinding" inheritRefs="true"/>
+		<antcall target="mdb" inheritRefs="true"/>
 		<antcall target="merge" inheritRefs="true"/>
 		<antcall target="relationships" inheritRefs="true"/>
 		<antcall target="secondary" inheritRefs="true"/>
@@ -36,6 +39,7 @@
 		<antcall target="stateful_deployment_descriptor" inheritRefs="true"/>
 		<antcall target="stateless" inheritRefs="true"/>
 		<antcall target="stateless_deployment_descriptor" inheritRefs="true"/>
+		<antcall target="timer" inheritRefs="true"/>
 		
 		<!-- <antcall target="asynch" inheritRefs="true"/>
 		<antcall target="blob" inheritRefs="true"/>
@@ -158,13 +162,13 @@
 		<ant dir="dependency" antfile="build.xml" target="clean"/>
 	</target>
 
-	<target name="dependent">    
-		<echo message="---------------- Running dependent ------------"/>   
-		<ant dir="dependent" antfile="build.xml"/>
-		<sleep seconds="5"/>
-		<ant dir="dependent" antfile="build.xml" target="run"/>
+	<target name="embeddable">    
+		<echo message="---------------- Running embeddable ------------"/>   
+		<ant dir="embeddable" antfile="build.xml"/>
+		<sleep seconds="10"/>
+		<ant dir="embeddable" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
-		<ant dir="dependent" antfile="build.xml" target="clean"/>
+		<ant dir="embeddable" antfile="build.xml" target="clean"/>
 	</target>
 
 	<target name="ear">      
@@ -249,7 +253,7 @@
 	<target name="joininheritance">    
 		<echo message="---------------- Running joininheritance ------------"/>   
 		<ant dir="joininheritance" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="joininheritance" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="joininheritance" antfile="build.xml" target="clean"/>
@@ -258,7 +262,7 @@
 	<target name="mdb">      
 		<echo message="---------------- Running mdb ------------"/> 
 		<ant dir="mdb" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="mdb" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="mdb" antfile="build.xml" target="clean"/>
@@ -267,7 +271,7 @@
 	<target name="mdb_deployment_descriptor"> 
 		<echo message="---------------- Running mdb_deployment_descriptor ------------"/>      
 		<ant dir="mdb_deployment_descriptor" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="mdb_deployment_descriptor" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="mdb_deployment_descriptor" antfile="build.xml" target="clean"/>
