@@ -9,7 +9,7 @@
 
 	<!-- Model Version -->
 	<modelVersion>4.0.0</modelVersion>
-
+	
 	<parent>
 		<groupId>org.jboss.ejb3</groupId>
 		<artifactId>jboss-ejb3-tutorial-common</artifactId>
@@ -18,11 +18,11 @@
 	</parent>
 
 	<properties>
-		<jboss.ejb3.tutorial.deployables>${build.resource.directory}/queue-example-service.xml,${build.resource.directory}/custom-ejb3-interceptors-aop.xml,${pom.build.directory}/${pom.artifactId}.${pom.packaging}</jboss.ejb3.tutorial.deployables>
+		<jboss.ejb3.tutorial.deployables>${basedir}/queue-example-service.xml,${basedir}/custom-ejb3-interceptors-aop.xml,${pom.build.directory}/${pom.artifactId}.${pom.packaging}</jboss.ejb3.tutorial.deployables>
 		<ejb3.tutorial.client>org.jboss.tutorial.mdb.client.Client</ejb3.tutorial.client>
 
 	</properties>
-
+	
 
 	<artifactId>jboss-ejb3-tutorial-mdb</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
@@ -30,10 +30,8 @@
 	<name>Message Driven Beans in EJB3</name>
 	<url>http://labs.jboss.com/jbossejb3/</url>
 	<description>
-    Tutorial about using Message driven beans in EJB3
-  </description>
-
-
+    	Tutorial about using Message driven beans in EJB3
+  	</description>
 
 
 
