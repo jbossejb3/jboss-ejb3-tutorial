@@ -1,0 +1,42 @@
+!!!Timer Service and Callbacks
+This example shows you how to access {{javax.ejb.SessionContext}} as well as using the EJB Timer Service.  It also explains how
+callbacks work in EJB 3.0.
+
+!SessionContext injection
+The {{javax.ejb.SessionContext}} is injected using the {{@javax.annotation.Resource}} annotation.  When the stateless bean instance is created
+the field will be initialized with the correct SessionContext.  Take a look at [ExampleTimerBean.java|src/org/jboss/tutorial/timer/bean/ExampleTimerBean.java]
+
+{{{
+   private @Resource SessionContext ctx;
+}}}
+
+!Callbacks
+The rest of the bean example registers a timer with the EJB Timer service.  In the EJB 2.1 specification it was required to implement an interface to get ejbTimeout callbacks.
+It is still being debated in the EJB 3.0 EG on whether an interface or annotation should be used to specify this callback.
+In JBoss EJB 3 Preview, it is implemented as an annotation.
+All you have to define is a method annotated with {{javax.ejb.Timeout}}.
+This is the same with other callbacks like @PrePassviate, @PostRemove, etc...  No interface is needed to be implemented, just declare the methods as you need them.
+
+If you have feedback on this and would like to throw your 2-cents on this topic, please email [ejb3-feedback|mailto:ejb3-feedback@sun.com]
+
+!Building and Running
+To build and run the example, make sure you have {{ejb3.deployer}} installed in JBoss 4.0.x and have JBoss running.  See the reference manual on how to install EJB 3.0.  
+{{{
+Unix:    $ export JBOSS_HOME=<where your jboss 4.0 distribution is>
+Windows: $ set JBOSS_HOME=<where your jboss 4.0 distribution is>
+$ ant
+$ ant run
+
+}}}
+
+After 5 seconds look at the JBoss console window to see the Timer being fired.
+
+{{{
+00:51:20,074 INFO  [STDOUT] ---------------------
+00:51:20,074 INFO  [STDOUT] * Received Timer event: Hello World
+00:51:20,074 INFO  [STDOUT] ---------------------
+}}}
+
+
+
+
