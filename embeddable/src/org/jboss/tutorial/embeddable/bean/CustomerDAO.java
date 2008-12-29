@@ -19,41 +19,17 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.tutorial.dependent.bean;
+package org.jboss.tutorial.embeddable.bean;
 
 import java.util.List;
-import javax.ejb.Remote;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-@Stateless
-@Remote(CustomerDAO.class)
-public class CustomerDAOBean implements CustomerDAO
+public interface CustomerDAO
 {
-   @PersistenceContext
-   private EntityManager manager;
+   int create(String first, String last, String street, String city, String state, String zip);
 
+   Customer find(int id);
 
-   public int create(String first, String last, String street, String city, String state, String zip)
-   {
-      Customer customer = new Customer(first, last, street, city, state, zip);
-      manager.persist(customer);
-      return customer.getId();
-   }
+   List findByLastName(String name);
 
-   public Customer find(int id)
-   {
-      return manager.find(Customer.class, id);
-   }
-
-   public List findByLastName(String name)
-   {
-      return manager.createQuery("from Customer c where c.name.last = :name").setParameter("name", name).getResultList();
-   }
-
-   public void merge(Customer c)
-   {
-      manager.merge(c);
-   }
+   void merge(Customer c);
 }

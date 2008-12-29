@@ -19,10 +19,10 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.jboss.tutorial.dependent.client;
+package org.jboss.tutorial.embeddable.client;
 
-import org.jboss.tutorial.dependent.bean.Customer;
-import org.jboss.tutorial.dependent.bean.CustomerDAO;
+import org.jboss.tutorial.embeddable.bean.Customer;
+import org.jboss.tutorial.embeddable.bean.CustomerDAO;
 
 import javax.naming.InitialContext;
 

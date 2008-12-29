@@ -18,7 +18,7 @@
   </parent>
 
   <properties>
-    <ejb3.tutorial.client>org.jboss.tutorial.dependent.client.Client</ejb3.tutorial.client>
+    <ejb3.tutorial.client>org.jboss.tutorial.embeddable.client.Client</ejb3.tutorial.client>
     
   </properties>
 

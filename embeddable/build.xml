@@ -62,7 +62,7 @@
    </target>
 
    <target name="run" depends="ejbjar">
-      <java classname="org.jboss.tutorial.dependent.client.Client" fork="yes" dir=".">
+      <java classname="org.jboss.tutorial.embeddable.client.Client" fork="yes" dir=".">
          <classpath refid="classpath"/>
       </java>
    </target>
