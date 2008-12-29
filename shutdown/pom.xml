@@ -13,7 +13,7 @@
   <properties>
     
     <!--  Versions -->
-    <version.maven-jboss-as-control-plugin>0.1.0</version.maven-jboss-as-control-plugin>
+    <version.maven-jboss-as-control-plugin>0.1.1-SNAPSHOT</version.maven-jboss-as-control-plugin>
   </properties>
 
 

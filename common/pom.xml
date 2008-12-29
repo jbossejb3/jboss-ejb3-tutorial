@@ -7,8 +7,12 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<properties>
+		<!--  Comma delimited files which need to be deployed. The order in which the files will be deployed
+		will be the same as they appear in this property value. Each tutorial can override this value. The default
+		deployable is the jar file that the tutorial generates. -->
+		<jboss.ejb3.tutorial.deployables>${pom.build.directory}/${pom.artifactId}.${pom.packaging}</jboss.ejb3.tutorial.deployables>
 	  	<!--  Versions -->
-	    <version.maven-jboss-as-control-plugin>0.1.0</version.maven-jboss-as-control-plugin>
+	    <version.maven-jboss-as-control-plugin>0.1.1-SNAPSHOT</version.maven-jboss-as-control-plugin>
 	    <version.org.jboss.jbossas_jboss-as-client>5.0.0.GA</version.org.jboss.jbossas_jboss-as-client>
   	</properties>
 
@@ -77,7 +81,7 @@
               	-->
             	
                 <executions>
-              		   	<execution>
+              		 <execution>
               		   	<id>deploy-tutorial</id>
                 		<goals>
                   			<goal>deploy</goal>
@@ -86,7 +90,7 @@
                 		<configuration>	
                   			<serverConfigName>${jboss.server.config}</serverConfigName>
                   			<files>
-                    			${pom.build.directory}/${pom.artifactId}.${pom.packaging}
+                    			${jboss.ejb3.tutorial.deployables}
                   			</files>
                   			<jboss.test.run>true</jboss.test.run>
                 		</configuration>
@@ -150,7 +154,7 @@
                 		<configuration>	
                   			<serverConfigName>${jboss.server.config}</serverConfigName>
                   			<files>
-                    			${pom.build.directory}/${pom.artifactId}.${pom.packaging}
+                    			${jboss.ejb3.tutorial.deployables}
                   			</files>
                   			<jboss.test.run>true</jboss.test.run>
                 		</configuration>
