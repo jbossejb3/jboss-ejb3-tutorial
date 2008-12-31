@@ -2,6 +2,11 @@
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3CR3//EN" "../../../../docbook-support/support/docbook-dtd/docbookx.dtd" [
 <!ENTITY installing          SYSTEM "modules/installing.xml">
 <!ENTITY stateless          SYSTEM "modules/stateless.xml">
+<!ENTITY stateful          SYSTEM "modules/stateful.xml">
+<!ENTITY blob          SYSTEM "modules/blob.xml">
+<!ENTITY callbacks          SYSTEM "modules/callbacks.xml">
+<!ENTITY composite          SYSTEM "modules/composite.xml">
+<!ENTITY todo          SYSTEM "modules/todo.xml">
 ]>
 <book lang="en">
   <bookinfo>
@@ -14,5 +19,5 @@
     <title>Target Audience</title>
     <para>This tutorial is meant for EJB3 application developers on JBoss Application Server. The tutorial walks you through the EJB 3.0 features and how they deploy to JBoss.  Please check the <xref linkend="Installation">install guide</xref> for system requirements.</para>
   </preface>
-&installing;&stateless;
+&installing;&stateless;&stateful;&blob;&callbacks;&composite;&todo;
 </book>
