@@ -751,7 +751,7 @@ public class AccountsConfirmInterceptor extends AccountsInterceptor
 		InvocationContext :
 		<para>
 			As you have seen the <literal>@AroundInvoke</literal> annotated interceptor methods all take a parameter of type 
-			<literal>javax.ejb.InvocationContext</literal>. The definition of InvocationContext is:
+			<literal>javax.ejb.InvocationContext</literal>. The definition of <ulink url="http://java.sun.com/javaee/5/docs/api/javax/interceptor/InvocationContext.html">InvocationContext</ulink> is:
 			
 			<programlisting>
 				<![CDATA[

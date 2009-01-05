@@ -69,11 +69,6 @@ public class MySessionBean implements MySession
 				
 				]]>
 			</programlisting>
-			<note>
-				
-				<xref linkend="JNDIBinding">Not supported in JBossAS-5.0 GA</xref> 
-				
-			</note>
 			
 		</para>
 	</sect5>
