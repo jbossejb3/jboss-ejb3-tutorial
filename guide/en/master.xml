@@ -15,6 +15,12 @@
 <!ENTITY mdb          SYSTEM "modules/mdb.xml">
 <!ENTITY mdb_deployment_descriptor          SYSTEM "modules/mdb_deployment_descriptor.xml">
 <!ENTITY merge          SYSTEM "modules/merge.xml">
+<!ENTITY relationships          SYSTEM "modules/relationships.xml">
+<!ENTITY secondary          SYSTEM "modules/secondary.xml">
+<!ENTITY security          SYSTEM "modules/security.xml">
+<!ENTITY singleinheritance          SYSTEM "modules/singleinheritance.xml">
+<!ENTITY stateful_deployment_descriptor          SYSTEM "modules/stateful_deployment_descriptor.xml">
+<!ENTITY stateless_deployment_descriptor          SYSTEM "modules/stateless_deployment_descriptor.xml">
 <!ENTITY todo          SYSTEM "modules/todo.xml">
 ]>
 <book lang="en">
@@ -28,5 +34,5 @@
     <title>Target Audience</title>
     <para>This tutorial is meant for EJB3 application developers on JBoss Application Server. The tutorial walks you through the EJB 3.0 features and how they deploy to JBoss.  Please check the <xref linkend="Installation">install guide</xref> for system requirements.</para>
   </preface>
-&installing;&stateless;&stateful;&blob;&callbacks;&composite;&embeddable;&entity;&extended_pc;&injection;&interceptor;&jndibinding;&mdb;&mdb_deployment_descriptor;&merge;&todo;
+&installing;&stateless;&stateful;&blob;&callbacks;&composite;&embeddable;&entity;&extended_pc;&injection;&interceptor;&jndibinding;&mdb;&mdb_deployment_descriptor;&merge;&relationships;&secondary;&security;&singleinheritance;&stateful_deployment_descriptor;&stateless_deployment_descriptor;&todo;
 </book>
