@@ -36,23 +36,36 @@ public class Client
       processMessage("queue/tutorial/example");
       processMessage("queue/tutorial/defaultedexample");
    }
-   
+
    private static void processMessage(String queueBinding) throws Exception
    {
+
       QueueConnection cnn = null;
       QueueSender sender = null;
       QueueSession session = null;
-      InitialContext ctx = new InitialContext();
-      Queue queue = (Queue) ctx.lookup(queueBinding);
-      QueueConnectionFactory factory = (QueueConnectionFactory) ctx.lookup("ConnectionFactory");
-      cnn = factory.createQueueConnection();
-      session = cnn.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE);
+      try
+      {
+         InitialContext ctx = new InitialContext();
+         Queue queue = (Queue) ctx.lookup(queueBinding);
+         QueueConnectionFactory factory = (QueueConnectionFactory) ctx.lookup("ConnectionFactory");
+         cnn = factory.createQueueConnection();
+         session = cnn.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE);
 
-      TextMessage msg = session.createTextMessage("Hello World");
+         TextMessage msg = session.createTextMessage("Hello World");
 
-      sender = session.createSender(queue);
-      sender.send(msg);
-      System.out.println("Message sent successfully to remote queue " + queueBinding);
+         sender = session.createSender(queue);
+         sender.send(msg);
+         System.out.println("Message sent successfully to remote queue " + queueBinding);
+      }
+      finally
+      {
+         //cleanup
+         if (cnn != null)
+         {
+            cnn.close();
+         }
+
+      }
 
    }
 }
