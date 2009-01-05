@@ -12,6 +12,8 @@
 <!ENTITY injection          SYSTEM "modules/injection.xml">
 <!ENTITY interceptor          SYSTEM "modules/interceptor.xml">
 <!ENTITY jndibinding          SYSTEM "modules/jndibinding.xml">
+<!ENTITY mdb          SYSTEM "modules/mdb.xml">
+<!ENTITY mdb_deployment_descriptor          SYSTEM "modules/mdb_deployment_descriptor.xml">
 <!ENTITY todo          SYSTEM "modules/todo.xml">
 ]>
 <book lang="en">
@@ -25,5 +27,5 @@
     <title>Target Audience</title>
     <para>This tutorial is meant for EJB3 application developers on JBoss Application Server. The tutorial walks you through the EJB 3.0 features and how they deploy to JBoss.  Please check the <xref linkend="Installation">install guide</xref> for system requirements.</para>
   </preface>
-&installing;&stateless;&stateful;&blob;&callbacks;&composite;&embeddable;&entity;&extended_pc;&injection;&interceptor;&jndibinding;&todo;
+&installing;&stateless;&stateful;&blob;&callbacks;&composite;&embeddable;&entity;&extended_pc;&injection;&interceptor;&jndibinding;&mdb;&mdb_deployment_descriptor;&todo;
 </book>
