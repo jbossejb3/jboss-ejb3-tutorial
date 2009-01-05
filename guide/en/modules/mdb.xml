@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<chapter id="Message Driven Beans">
+	<title>Introduction to Message Driven Beans in EJB3</title>
+	<para>
+		This example shows you how to implement an MDB with EJB 3.0 using annotations.
+		
+	</para>
+	<para>
+		Take a look at <literal>org.jboss.tutorial.mdb.bean.ExampleMDB</literal>. The @MessageDriven annotation
+		defines the bean as an MDB. The <literal>activationConfig</literal> attribute contains much of the MDB configuration via 
+		<literal>@ActivationConfigProperty</literal>. Also notice that the MDB source contains properties for 
+		<literal>destinationType</literal> and <literal>destination</literal>
+		
+	</para>
+	
+	<para>
+		The following is the list of standard Activation Config Properties available from the JCA 1.5 specification.
+		Also listed are the respective types and default values where defined.
+		
+		
+	</para>
+</chapter>

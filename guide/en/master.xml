@@ -6,6 +6,12 @@
 <!ENTITY blob          SYSTEM "modules/blob.xml">
 <!ENTITY callbacks          SYSTEM "modules/callbacks.xml">
 <!ENTITY composite          SYSTEM "modules/composite.xml">
+<!ENTITY embeddable          SYSTEM "modules/embeddable.xml">
+<!ENTITY entity          SYSTEM "modules/entity.xml">
+<!ENTITY extended_pc          SYSTEM "modules/extended_pc.xml">
+<!ENTITY injection          SYSTEM "modules/injection.xml">
+<!ENTITY interceptor          SYSTEM "modules/interceptor.xml">
+<!ENTITY jndibinding          SYSTEM "modules/jndibinding.xml">
 <!ENTITY todo          SYSTEM "modules/todo.xml">
 ]>
 <book lang="en">
@@ -19,5 +25,5 @@
     <title>Target Audience</title>
     <para>This tutorial is meant for EJB3 application developers on JBoss Application Server. The tutorial walks you through the EJB 3.0 features and how they deploy to JBoss.  Please check the <xref linkend="Installation">install guide</xref> for system requirements.</para>
   </preface>
-&installing;&stateless;&stateful;&blob;&callbacks;&composite;&todo;
+&installing;&stateless;&stateful;&blob;&callbacks;&composite;&embeddable;&entity;&extended_pc;&injection;&interceptor;&jndibinding;&todo;
 </book>

@@ -12,4 +12,35 @@
 
 		</section>
 		
+		<section id="JNDIBinding">
+			<title>TODO - Support for binding the EntityManager and EntityManagerFactory in JNDI</title>
+			<para>
+				JBoss-5.0 GA does NOT support binding the EntityManager and EntityManagerFactory in JNDI, using
+				the following properties in persistence.xml:
+				
+				<programlisting>
+					<![CDATA[
+<persistence>
+   <persistence-unit name="manager1">
+		...
+      <properties>
+         <property name="jboss.entity.manager.jndi.name" value="java:/Manager1"/>
+         <property name="jboss.entity.manager.factory.jndi.name" value="java:/Manager1Factory"/>
+      </properties>
+   </persistence-unit>
+</persistence>
+				
+					]]>
+				</programlisting>
+				We are tracking this in our EJBTHREE JIRA.		 
+			</para>
+
+		</section>
+		
+		<section id="InvocationContext_Javadoc">
+			<title>Point to the javadocs of InvocationContext in the "interceptor" tutorial guide</title>
+			<para>
+				Better point to javadocs instead of the listing the methods in the guide
+			</para>
+		</section>			
 </chapter>
