@@ -23,6 +23,7 @@
 		<antcall target="composite" inheritRefs="true"/>
 		<antcall target="consumer" inheritRefs="true"/>
 		<antcall target="consumer_deployment_descriptor" inheritRefs="true"/>
+		<antcall target="ejb21_client_adaptors" inheritRefs="true"/>
 		<antcall target="embeddable" inheritRefs="true"/>
 		<antcall target="entity" inheritRefs="true"/>
 		<antcall target="extended_pc" inheritRefs="true"/>
@@ -181,7 +182,7 @@
 	<target name="ejb21_client_adaptors"> 
 		<echo message="---------------- Running ejb21_client_adaptors ------------"/>      
 		<ant dir="ejb21_client_adaptors" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="ejb21_client_adaptors" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="ejb21_client_adaptors" antfile="build.xml" target="clean"/>

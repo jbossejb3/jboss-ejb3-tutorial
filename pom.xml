@@ -96,6 +96,7 @@
 		 	<module>composite</module>
 		 	<module>consumer</module> 
 		 	<module>consumer_deployment_descriptor</module>
+		 	<module>ejb21_client_adaptors</module>
 		 	<module>embeddable</module>
 			<module>entity</module>
 			<module>extended_pc</module>
@@ -114,7 +115,7 @@
 			<module>stateless</module>
 			<module>stateless_deployment_descriptor</module>
 			<module>timer</module>
-  
+   
  
 			<!-- Responsible for JBossAS shutdown -->
 			<module>shutdown</module>
