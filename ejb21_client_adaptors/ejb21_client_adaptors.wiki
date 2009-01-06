@@ -1,0 +1,42 @@
+!!!EJB 2.1 Client Adaptors
+EJB 3.0 is backward compatible to EJB 2.x clients and supports the use of local and remote home interfaces as well as 
+initialization methods (e.g. ejbCreate()). This capability is configured through annotations and/or through deployment 
+descriptors. Take a look at [Session1Bean.java|src/org/jboss/tutorial/ejb21_client_adaptors/bean/Session1Bean.java]. Note
+that the class is annotated with {{@RemoteHome}} and the ejbCreate() method is annotated with {{@Init}}. The former 
+annotation indicates that the bean provides a EJB 2.1 style home interface. The latter annotation indicates that when the create()
+method is invoked from the home interface, the bean is initialized via the ejbCreate method. Note that the initializion method name
+is not restricted to ejbCreate().
+
+[Session2Bean.java|src/org/jboss/tutorial/ejb21_client_adaptors/bean/Session2Bean.java] illustrates the use of a
+local home interface.
+
+Similiarly, [DeploymentDescriptorSession1Bean.java|src/org/jboss/tutorial/ejb21_client_adaptors/bean/DeploymentDescriptorSession1Bean.java] and 
+[DeploymentDescriptorSession2Bean.java|src/org/jboss/tutorial/ejb21_client_adaptors/bean/DeploymentDescriptorSession2Bean.java]
+mimic the behavior of the first two beans, but use deployment descriptors to indicate the home interface(s) and initialization method(s).
+
+Take a look at [ejb-jar.xml|META-INF/ejb-jar.xml]. Note the "home" and "local-home" tags that indicate the respective home interfaces.
+Also, note the "init-list" tag that indicates the initialization method(s) executed when beans are created via the home interface(s).
+
+!Building and Running
+To build and run the example, make sure you have {{ejb3.deployer}} installed in JBoss 4.0.x and have JBoss running.  See the reference manual on how to install EJB 3.0.  
+{{{
+Unix:    $ export JBOSS_HOME=<where your jboss 4.0 distribution is>
+Windows: $ set JBOSS_HOME=<where your jboss 4.0 distribution is>
+$ ant
+$ ant run
+
+run:
+     [java] Session1 init value is initialized
+     [java] Session2 init value is initialized
+     [java] DeploymentDescriptor Session1 init value is initialized
+     [java] DeploymentDescriptor Session2 init value is initialized
+}}}
+
+The INFO message you can ignore.  It will be fixed in later releases of JBoss 4.0.
+
+!Jar structure
+EJB 3.0 beans must be packaged in a JAR file with the suffix {{.jar}}.  Running the ant script above creates a JAR file within the deploy/ directory of JBoss.  All that needs to be in that jar is your server-side class files.  So basically just the CalculatorBean and the interfaces it implements.  JBoss will automatically browse the JAR file to determine if any EJBs are annotated by any classes within it.  THere is no precompilation step.
+
+
+
+
