@@ -6,6 +6,7 @@
 <!ENTITY blob          SYSTEM "modules/blob.xml">
 <!ENTITY callbacks          SYSTEM "modules/callbacks.xml">
 <!ENTITY composite          SYSTEM "modules/composite.xml">
+<!ENTITY ejb21_client_adaptors          SYSTEM "modules/ejb21_client_adaptors.xml">
 <!ENTITY embeddable          SYSTEM "modules/embeddable.xml">
 <!ENTITY entity          SYSTEM "modules/entity.xml">
 <!ENTITY extended_pc          SYSTEM "modules/extended_pc.xml">
@@ -34,5 +35,5 @@
     <title>Target Audience</title>
     <para>This tutorial is meant for EJB3 application developers on JBoss Application Server. The tutorial walks you through the EJB 3.0 features and how they deploy to JBoss.  Please check the <xref linkend="Installation">install guide</xref> for system requirements.</para>
   </preface>
-&installing;&stateless;&stateful;&blob;&callbacks;&composite;&embeddable;&entity;&extended_pc;&injection;&interceptor;&jndibinding;&mdb;&mdb_deployment_descriptor;&merge;&relationships;&secondary;&security;&singleinheritance;&stateful_deployment_descriptor;&stateless_deployment_descriptor;&todo;
+&installing;&stateless;&stateful;&blob;&callbacks;&composite;&ejb21_client_adaptors;&embeddable;&entity;&extended_pc;&injection;&interceptor;&jndibinding;&mdb;&mdb_deployment_descriptor;&merge;&relationships;&secondary;&security;&singleinheritance;&stateful_deployment_descriptor;&stateless_deployment_descriptor;&todo;
 </book>
