@@ -12,8 +12,8 @@
       <session>
          <description>A session bean on looks up stuff in the ENC</description>
          <ejb-name>ENCBean</ejb-name>
-         <remote>org.jboss.tutorial.jboss_resource_ref.bean.TestENC</remote>
-         <ejb-class>org.jboss.tutorial.jboss_resource_ref.bean.TestENCBean</ejb-class>    
+         <business-remote>org.jboss.tutorial.resource_ref.bean.TestENC</business-remote>
+         <ejb-class>org.jboss.tutorial.resource_ref.bean.TestENCBean</ejb-class>    
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
 
