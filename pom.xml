@@ -96,6 +96,7 @@
 		 	<module>composite</module>
 		 	<module>consumer</module> 
 		 	<module>consumer_deployment_descriptor</module>
+		 	<module>dependency</module>
 		 	<module>ejb21_client_adaptors</module>
 		 	<module>embeddable</module>
 			<module>entity</module>
@@ -103,20 +104,23 @@
 			<module>injection</module>
 			<module>interceptor</module>  
 			<module>jndibinding</module> 
+			<module>joininheritance</module> 
 			<module>mdb</module>
 			<module>mdb_deployment_descriptor</module>
 			<module>merge</module>
 			<module>relationships</module>
 			<module>secondary</module>
 			<module>security</module>
+			<module>service</module>
 			<module>singleinheritance</module>
 			<module>stateful</module>
 			<module>stateful_deployment_descriptor</module>
 			<module>stateless</module>
 			<module>stateless_deployment_descriptor</module>
 			<module>timer</module>
+			<module>webservice</module>
    
- 
+  
 			<!-- Responsible for JBossAS shutdown -->
 			<module>shutdown</module>
   
