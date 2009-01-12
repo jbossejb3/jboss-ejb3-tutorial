@@ -11,6 +11,14 @@
 		will be the same as they appear in this property value. Each tutorial can override this value. The default
 		deployable is the jar file that the tutorial generates. -->
 		<jboss.ejb3.tutorial.deployables>${pom.build.directory}/${pom.artifactId}.${pom.packaging}</jboss.ejb3.tutorial.deployables>
+		
+		<!--  A space-delimited list of command line arguments to be passed to the ${ejb3.tutorial.client}
+			Individual tutorial can provide their own value for this property. By default its empty.
+			Note that, since this is a space-delimited list, we won't support (as of now) argument value having a space
+			(We don't have a use-case to support this, right now, so let's keep this simple)
+		  -->
+		<jboss.ejb3.tutorial.client.args></jboss.ejb3.tutorial.client.args>
+		
 	  	<!--  Versions -->
 	    <version.maven-jboss-as-control-plugin>0.1.1-SNAPSHOT</version.maven-jboss-as-control-plugin>
 	    <version.org.jboss.jbossas_jboss-as-client>5.0.0.GA</version.org.jboss.jbossas_jboss-as-client>
@@ -115,17 +123,15 @@
 		              		<tasks>
 		              			<!--  The classpath for the tutorial client -->
 		              			<path id="ejb3.tutorial.classpath">
-			      					<!-- Only the jbossall-client.jar should ideally be sufficient -->
-				      				<fileset dir="${jboss.home}/client">
-				         				<include name="**/jbossall-client.jar"/>
-				      				</fileset>
-				      				<pathelement location="${build.outputDirectory}"/>
+			      					<pathelement location="${build.outputDirectory}"/>
 		   						</path>
 		   						<echo message="*********************************** JBoss EJB3 Tutorials ***********************************" />
-		   						<echo message="**** Running ${ejb3.tutorial.client}" />
+		   						<echo message="**** Running ${ejb3.tutorial.client} ${jboss.ejb3.tutorial.client.args}" />
 		   						<java classname="${ejb3.tutorial.client}" fork="yes" dir="." failonerror="true">
 		         					<classpath refid="ejb3.tutorial.classpath"/>
 		         					<classpath refid="maven.runtime.classpath"/>
+		         					<!-- Command line argument(s) -->
+		         					<arg line="${jboss.ejb3.tutorial.client.args}"/>
 		      					</java>
 		      					<echo message="********************************************************************************************" />
 		              		</tasks>
