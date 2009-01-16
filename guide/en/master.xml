@@ -29,6 +29,7 @@
 <!ENTITY jboss_deployment_descriptor          SYSTEM "modules/jboss_deployment_descriptor.xml">
 <!ENTITY cachedentity          SYSTEM "modules/cachedentity.xml">
 <!ENTITY enterprise_app_ejb_injection          SYSTEM "modules/enterprise_app_ejb_injection.xml">
+<!ENTITY reference21_30          SYSTEM "modules/reference21_30.xml">
 <!ENTITY todo          SYSTEM "modules/todo.xml">
 ]>
 <book lang="en">
@@ -36,11 +37,12 @@
     <title>JBoss EJB3 Tutorials</title>
     <subtitle>A guide for using EJB3 on JBoss</subtitle>
     <releaseinfo>1.0</releaseinfo>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Author_Group.xml"/>
   </bookinfo>
   <toc/>
  <preface id="target" revision="1">
     <title>Target Audience</title>
     <para>This tutorial is meant for EJB3 application developers on JBoss Application Server. The tutorial walks you through the EJB 3.0 features and how they deploy to JBoss.  Please check the <xref linkend="Installation">install guide</xref> for system requirements.</para>
   </preface>
-&installing;&stateless;&stateful;&blob;&cachedentity;&callbacks;&composite;&dependency;&ejb21_client_adaptors;&embeddable;&enterprise_app_ejb_injection;&entity;&extended_pc;&injection;&interceptor;&jboss_deployment_descriptor;&jndibinding;&joininheritance;&mdb;&mdb_deployment_descriptor;&merge;&relationships;&resource_ref;&secondary;&security;&singleinheritance;&stateful_deployment_descriptor;&stateless_deployment_descriptor;&timer;&todo;
+&installing;&stateless;&stateful;&blob;&cachedentity;&callbacks;&composite;&dependency;&ejb21_client_adaptors;&embeddable;&enterprise_app_ejb_injection;&entity;&extended_pc;&injection;&interceptor;&jboss_deployment_descriptor;&jndibinding;&joininheritance;&mdb;&mdb_deployment_descriptor;&merge;&reference21_30;&relationships;&resource_ref;&secondary;&security;&singleinheritance;&stateful_deployment_descriptor;&stateless_deployment_descriptor;&timer;&todo;
 </book>
