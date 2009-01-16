@@ -25,6 +25,7 @@
    	<!-- Hibernate core classes -->
 		<fileset dir="${jboss.home}/common/lib">
 			<include name="hibernate-core.jar"/>
+			<include name="ejb3-persistence.jar"/>
 		</fileset>
    		<fileset dir="${jboss.home}/server/${jboss.server.config}/lib">
    			<include name="**/*.jar"/>
