@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  
+
+  <properties>
+		
+	  	<!--  Versions -->
+	    
+	    <version.org.jboss.jbossas_jboss-as-client>5.0.0.GA</version.org.jboss.jbossas_jboss-as-client>
+  	</properties>
+   
+  <!-- Model Version -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jboss.ejb3</groupId>
+    <artifactId>jboss-ejb3-tutorial-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../</relativePath>
+  </parent>
+
+  
+
+
+  <artifactId>jboss-ejb3-tutorial-reference21_30</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Referencing EJB2.1 with EJB3 and vice versa</name>
+  <url>http://labs.jboss.com/jbossejb3/</url>
+  <description>
+    Tutorial demonstrating how EJB2.1 and EJB3 can reference one another.
+  </description>
+  
+  <modules>
+  	<module>ejb21_app</module>
+   	<module>ejb3_app</module>
+   	<module>webapp</module>
+  	<module>enterprise_app</module>  
+  </modules>
+ 
+ 	<!-- Dependencies -->
+	<dependencies>
+  		
+      
+      <dependency>
+            <groupId>org.jboss.jbossas</groupId>
+            <artifactId>jboss-as-client</artifactId>
+            <version>${version.org.jboss.jbossas_jboss-as-client}</version>
+            <type>pom</type>
+           
+        </dependency>
+      
+  	
+	</dependencies>
+  
+
+</project>
