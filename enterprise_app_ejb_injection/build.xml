@@ -4,7 +4,7 @@
 <!-- JBoss build file                                                       -->
 <!-- ======================================================================= -->
 
-<project name="JBoss" default="ejbjar" basedir=".">
+<project name="JBoss" default="ear" basedir=".">
 
    	<property environment="env"/>
 	<property name="ejbapp.home" value="${basedir}/ejbapp"/>
@@ -72,7 +72,7 @@
    	
    </target>
 
-   <target name="ejbjar" depends="compile">
+   <target name="ear" depends="compile">
    	 <!-- The EJB jar -->
       <jar jarfile="${ejbapp.build.dir}/${build.jar.artifact}">
          <fileset dir="${ejbapp.build.classes.dir}">

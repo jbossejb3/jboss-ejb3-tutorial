@@ -5,7 +5,9 @@
 
   
 	<properties>
-		
+		<!-- We do not want to run any standalone client, so let's skip it. Let's just do a deploy/undeploy for testing
+		that the tutorial deploys without any errors -->
+		<jboss.ejb3.tutorial.client.skip>true</jboss.ejb3.tutorial.client.skip>
 	  	<!--  Versions -->
 	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_webapp>0.1.0-SNAPSHOT</version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_webapp>
 	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_ejb3app>0.1.0-SNAPSHOT</version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_ejb3app>
@@ -16,12 +18,13 @@
   <!-- Model Version -->
   <modelVersion>4.0.0</modelVersion>
   
-  
+  <!-- We need the deploy/undeploy support provided by the jboss-ejb3-tutorial-common, so that's our
+  parent  -->
   <parent>
     <groupId>org.jboss.ejb3</groupId>
-    <artifactId>jboss-ejb3-tutorial-enterprise_app_ejb_injection</artifactId>
+    <artifactId>jboss-ejb3-tutorial-common</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../</relativePath>
+    <relativePath>../../common</relativePath>
   </parent>
 
   
@@ -55,6 +58,14 @@
             <artifactId>jboss-ejb3-tutorial-enterprise_ejb3app</artifactId>
             <version>${version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_ejb3app}</version>
 			<type>ejb</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jboss.jbossas</groupId>
+            <artifactId>jboss-as-client</artifactId>
+            <version>${version.org.jboss.jbossas_jboss-as-client}</version>
+            <type>pom</type>
+            <scope>provided</scope>
         </dependency>
     
 	</dependencies>	 
