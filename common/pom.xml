@@ -113,18 +113,32 @@
 		    <!--  Ant plugin to run Ant tasks -->      
 			<plugin>
         		<artifactId>maven-antrun-plugin</artifactId>
+        		<!--  We need this 1.2 version since earlier versions do not support the 
+        		"unless" property of the "tasks". We selectively run the ant tasks and allow 
+        		individual tutorials to decide, if they want to skip running the client.
+        		See comments below for more details
+        		 -->
+        		<version>1.2</version>
         		<!--  Run the tutorial (client) -->		
         		<executions>
         			<execution>
 	          			<id>run-tutorial</id>
 					    <phase>integration-test</phase>
 	            		<configuration>
-		              		<!--  Individual child tutorials, will provide the ${ejb3.tutorial.client} property value  -->
-		              		<tasks>
+	            			<!--  
+	            				Individual tutorials can decide if they want to skip running the (standalone)
+	            				client. They can set the jboss.ejb3.tutorial.client.skip to true. This allows tutorials
+	            				like the ones which do not have a standalone client to still be able to deploy (and later
+	            				undeploy) into the server. 
+	            				The deploy/undeploy is mandatory to ensure that the tutorials aren't broken, but the standalone client
+	            			 	is NOT mandatory 
+	            			 -->
+		              		<tasks unless="jboss.ejb3.tutorial.client.skip">
 		              			<!--  The classpath for the tutorial client -->
 		              			<path id="ejb3.tutorial.classpath">
 			      					<pathelement location="${build.outputDirectory}"/>
 		   						</path>
+		   						<!--  Individual tutorials are expected to set the ejb3.tutorial.client property -->
 		   						<echo message="*********************************** JBoss EJB3 Tutorials ***********************************" />
 		   						<echo message="**** Running ${ejb3.tutorial.client} ${jboss.ejb3.tutorial.client.args}" />
 		   						<java classname="${ejb3.tutorial.client}" fork="yes" dir="." failonerror="true">
