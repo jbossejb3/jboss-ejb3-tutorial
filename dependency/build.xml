@@ -73,9 +73,6 @@
       </java>
    </target>
 
-   <target name="deploy-dependency">
-      <copy file="build/tutorial.sar" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
-   </target>
 
    <!-- =================================================================== -->
    <!-- Cleans up generated stuff                                           -->
