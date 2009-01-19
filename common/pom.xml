@@ -18,6 +18,13 @@
 			(We don't have a use-case to support this, right now, so let's keep this simple)
 		  -->
 		<jboss.ejb3.tutorial.client.args></jboss.ejb3.tutorial.client.args>
+
+		<!--  A space-delimited list of JVM arguments to be passed to the ${ejb3.tutorial.client}
+			Individual tutorial can provide their own value for this property. By default its empty.
+			Note that, since this is a space-delimited list, we won't support (as of now) argument value having a space
+			(We don't have a use-case to support this, right now, so let's keep this simple)
+		  -->
+		<jboss.ejb3.tutorial.client.jvmargs></jboss.ejb3.tutorial.client.jvmargs>
 		
 	  	<!--  Versions -->
 	    <version.maven-jboss-as-control-plugin>0.1.1-SNAPSHOT</version.maven-jboss-as-control-plugin>
@@ -146,6 +153,7 @@
 		         					<classpath refid="maven.runtime.classpath"/>
 		         					<!-- Command line argument(s) -->
 		         					<arg line="${jboss.ejb3.tutorial.client.args}"/>
+		         					<jvmarg line="${jboss.ejb3.tutorial.client.jvmargs}"/>
 		      					</java>
 		      					<echo message="********************************************************************************************" />
 		              		</tasks>
