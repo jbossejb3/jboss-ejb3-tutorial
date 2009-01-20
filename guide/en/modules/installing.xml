@@ -24,6 +24,20 @@ At the time of writing this tutorial, the latest stable version JBossAS 5.0 GA w
 The tutorials can be built with either Ant (version 1.7) or Maven (version 2.0.9). Depending on which build tool you want to use, you will have to download it from their sites.
 			</para>
 		</section>	
+		
+		<section id="EJB3_TUTORIAL_HOME">
+			<title>Set the EJB3_TUTORIAL_HOME</title>
+			<para>
+				For easy reference throughout the tutorials, we use the EJB3_TUTORIAL_HOME which points to the top level folder where
+				you downloaded the tutorials. Set it appropriately:
+				<programlisting>
+Unix:    $ export EJB3_TUTORIAL_HOME=&lt;where your EJB3 tutorial is&gt;
+Windows: $ set EJB3_TUTORIAL_HOME=&lt;where your EJB3 tutorial is&gt;
+				</programlisting>
+				
+				
+			</para>
+		</section>
 
 </chapter>
 	
