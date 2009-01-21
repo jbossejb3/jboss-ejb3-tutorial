@@ -181,7 +181,9 @@ Building and Running
 	See the <xref linkend="JBossAS5">installation section</xref> for details.
 			</para>
 		</note>
-
+		<para>
+			From the command prompt, move to the "callbacks" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>
+		</para>
 		<sect5>
 Ant Users:
 		</sect5>
