@@ -47,18 +47,14 @@ public class ServiceThree implements ServiceThreeManagement
    @Depends(ServiceOne.OBJECT_NAME)
    public ObjectName serviceOneName;
 
-   // The JBoss EJB3 version on JBossAS-5.0 GA does not support
-   // injection using @org.jboss.ejb3.annotation.Depends on a field/method.
-   // However, we do have plans to fix this in the later version.
-   // When fixed, the @Depends (with a JMX ObjectName value) can be used
-   // on a field or a method, to inject the MBean as follows
-   //   private ServiceTwoManagement service2;
-   //
-//      @Depends(ServiceTwo.OBJECT_NAME)
-//      public void setServiceTwo(ServiceTwoManagement service2)
-//      {
-//         this.service2 = service2;
-//      }
+   
+   private ServiceTwoManagement service2;
+
+   @Depends(ServiceTwo.OBJECT_NAME)
+   public void setServiceTwo(ServiceTwoManagement service2)
+   {
+      this.service2 = service2;
+   }
 
    public String serviceOneHello() throws Exception
    {
@@ -71,11 +67,9 @@ public class ServiceThree implements ServiceThreeManagement
 
    public String serviceTwoHello()
    {
-//            System.out.println("ServiceThree - Calling ServiceTwo.sayHello() via MBean proxy");
-//            return service2.sayHello();
-      System.out
-            .println("***** To be implemented : JBoss EJB3 version on JBossAS-5.0 GA does NOT support injection of MBean through @Depends");
-      return "*********** ServiceThree.serviceTwoHello() : To Be Implemented in later version *********";
+      System.out.println("ServiceThree - Calling ServiceTwo.sayHello() via MBean proxy");
+      return service2.sayHello();
+      
    }
 
    // Interceptors
