@@ -87,9 +87,9 @@
 			invoked, there's a Java Shutdownhook in the jbossas-server-manager which cleanly
 			shuts down the JBossAS -->
 			<module>init</module>
-				
-			<!-- The tutorials go here -->
 
+			<!-- The tutorials go here -->
+ 
 			<module>asynch</module>
 		  	<module>blob</module>
 		  	<module>cachedentity</module>
@@ -106,6 +106,7 @@
 			<module>injection</module>
 			<module>interceptor</module>  
 			<module>jboss_deployment_descriptor</module>
+			<module>jca_inflow_quartz</module>
 			<module>jndibinding</module> 
 			<module>joininheritance</module> 
 			<module>mdb</module>
@@ -117,15 +118,17 @@
 			<module>secondary</module>
 			<module>security</module>
 			<module>service</module>
+			<module>service_deployment_descriptor</module>
 			<module>singleinheritance</module>
 			<module>ssl</module>
 			<module>stateful</module>
 			<module>stateful_deployment_descriptor</module>
 			<module>stateless</module>
 			<module>stateless_deployment_descriptor</module>
+			<module>tableperinheritance</module>
 			<module>timer</module>
 			<module>webservice</module>
-  
+   
   
 			<!-- Responsible for JBossAS shutdown -->
 			<module>shutdown</module>
