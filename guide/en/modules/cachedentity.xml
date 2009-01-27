@@ -55,6 +55,7 @@
 <property name="hibernate.cache.region.jbc2.cachefactory" value="java:CacheManager"/>
 <property name="hibernate.cache.region.jbc2.cfg.entity" value="mvcc-entity"/>
 <property name="hibernate.cache.region.jbc2.cfg.query" value="local-query"/>
+<property name="hibernate.show_sql" value="true"/>
 				]]>
 			</programlisting>
 			<note>
