@@ -20,53 +20,26 @@
 		<antcall target="asynch" inheritRefs="true"/>
 		<antcall target="blob" inheritRefs="true"/>
 		<antcall target="callbacks" inheritRefs="true"/>
+		<antcall target="cachedentity" inheritRefs="true"/>
 		<antcall target="composite" inheritRefs="true"/>
 		<antcall target="consumer" inheritRefs="true"/>
 		<antcall target="consumer_deployment_descriptor" inheritRefs="true"/>
+		<antcall target="dependency" inheritRefs="true"/>
+		<antcall target="enterprise_app_ejb_injection" inheritRefs="true"/>
 		<antcall target="ejb21_client_adaptors" inheritRefs="true"/>
 		<antcall target="embeddable" inheritRefs="true"/>
 		<antcall target="entity" inheritRefs="true"/>
 		<antcall target="extended_pc" inheritRefs="true"/>
 		<antcall target="injection" inheritRefs="true"/>
 		<antcall target="interceptor" inheritRefs="true"/>
+		<antcall target="jboss_deployment_descriptor" inheritRefs="true"/> 
+		<antcall target="jca_inflow_quartz" inheritRefs="true"/> 
 		<antcall target="jndibinding" inheritRefs="true"/>
 		<antcall target="mdb" inheritRefs="true"/>
 		<antcall target="merge" inheritRefs="true"/>
+		<antcall target="reference21_30" inheritRefs="true"/>
 		<antcall target="relationships" inheritRefs="true"/>
-		<antcall target="secondary" inheritRefs="true"/>
-		<antcall target="security" inheritRefs="true"/>
-		<antcall target="singleinheritance" inheritRefs="true"/>
-		<antcall target="stateful" inheritRefs="true"/>
-		<antcall target="stateful_deployment_descriptor" inheritRefs="true"/>
-		<antcall target="stateless" inheritRefs="true"/>
-		<antcall target="stateless_deployment_descriptor" inheritRefs="true"/>
-		<antcall target="timer" inheritRefs="true"/>
-		
-		<!-- <antcall target="asynch" inheritRefs="true"/>
-		<antcall target="blob" inheritRefs="true"/>
-		<antcall target="callbacks" inheritRefs="true"/>
-		<antcall target="clusteredentity" inheritRefs="true"/> -->
-		<!--antcall target="clustering" inheritRefs="true"/-->
-		<!-- <antcall target="composite" inheritRefs="true"/>
-		<antcall target="consumer" inheritRefs="true"/>
-		<antcall target="consumer_deployment_descriptor" inheritRefs="true"/>
-		<antcall target="dependency" inheritRefs="true"/>
-		<antcall target="dependent" inheritRefs="true"/>
-		<antcall target="ear" inheritRefs="true"/>
-		<antcall target="ejb21_client_adaptors" inheritRefs="true"/>
-		<antcall target="entity" inheritRefs="true"/>
-		<antcall target="extended_pc" inheritRefs="true"/>
-		<antcall target="injection" inheritRefs="true"/>
-		<antcall target="interceptor" inheritRefs="true"/>
-		<antcall target="jboss_deployment_descriptor" inheritRefs="true"/> -->
-		<!--antcall target="jca/inflow/swiftmq" inheritRefs="true"/-->
-		<!-- <antcall target="jndibinding" inheritRefs="true"/>
-		<antcall target="joininheritance" inheritRefs="true"/>
-		<antcall target="mdb" inheritRefs="true"/>
-		<antcall target="jndibinding" inheritRefs="true"/>
-		<antcall target="merge" inheritRefs="true"/>
-		<antcall target="packaging" inheritRefs="true"/>
-		<antcall target="relationships" inheritRefs="true"/>
+		<antcall target="resource_ref" inheritRefs="true"/>
 		<antcall target="secondary" inheritRefs="true"/>
 		<antcall target="security" inheritRefs="true"/>
 		<antcall target="service" inheritRefs="true"/>
@@ -76,8 +49,9 @@
 		<antcall target="stateful_deployment_descriptor" inheritRefs="true"/>
 		<antcall target="stateless" inheritRefs="true"/>
 		<antcall target="stateless_deployment_descriptor" inheritRefs="true"/>
-		<antcall target="tableperinheritance" inheritRefs="true"/>
-		<antcall target="timer" inheritRefs="true"/> -->
+		<antcall target="timer" inheritRefs="true"/>
+		
+		
 	</target>
 
 	<target name="asynch"> 
@@ -107,24 +81,16 @@
 		<ant dir="callbacks" antfile="build.xml" target="clean"/>
 	</target>
 
-	<target name="clusteredentity">  
-		<echo message="---------------- Running clusteredentity ------------"/>     
-		<ant dir="clusteredentity" antfile="build.xml"/>
-		<sleep seconds="5"/>
-		<ant dir="clusteredentity" antfile="build.xml" target="run"/>
+	<target name="cachedentity">  
+		<echo message="---------------- Running cachedentity ------------"/>     
+		<ant dir="cachedentity" antfile="build.xml"/>
+		<sleep seconds="10"/>
+		<ant dir="cachedentity" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
-		<ant dir="clusteredentity" antfile="build.xml" target="clean"/>
+		<ant dir="cachedentity" antfile="build.xml" target="clean"/>
 	</target>
 
-	<target name="clustering">     
-		<echo message="---------------- Running clustering ------------"/>  
-		<ant dir="clustering" antfile="build.xml"/>
-		<sleep seconds="5"/>
-		<ant dir="clustering" antfile="build.xml" target="run.stateless"/>
-		<ant dir="clustering" antfile="build.xml" target="run.stateful"/>
-		<sleep seconds="4"/>
-		<ant dir="clustering" antfile="build.xml" target="clean"/>
-	</target>
+	
 
 	<target name="composite">   
 		<echo message="---------------- Running composite ------------"/>    
@@ -156,9 +122,8 @@
 	<target name="dependency">       
 		<echo message="---------------- Running dependency ------------"/>
 		<ant dir="dependency" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="dependency" antfile="build.xml" target="run"/>
-		<ant dir="dependency" antfile="build.xml" target="deploy-dependency"/>
 		<sleep seconds="4"/>
 		<ant dir="dependency" antfile="build.xml" target="clean"/>
 	</target>
@@ -172,11 +137,11 @@
 		<ant dir="embeddable" antfile="build.xml" target="clean"/>
 	</target>
 
-	<target name="ear">      
-		<echo message="---------------- Running ear ------------"/> 
-		<ant dir="ear" antfile="build.xml"/>
+	<target name="enterprise_app_ejb_injection">      
+		<echo message="---------------- Running enterprise_app_ejb_injection ------------"/> 
+		<ant dir="enterprise_app_ejb_injection" antfile="build.xml"/>
 		<sleep seconds="4"/>
-		<ant dir="ear" antfile="build.xml" target="clean"/>
+		<ant dir="enterprise_app_ejb_injection" antfile="build.xml" target="clean"/>
 	</target>
 
 	<target name="ejb21_client_adaptors"> 
@@ -218,7 +183,7 @@
 	<target name="interceptor">   
 		<echo message="---------------- Running interceptor ------------"/>    
 		<ant dir="interceptor" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="interceptor" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="interceptor" antfile="build.xml" target="clean"/>
@@ -227,19 +192,17 @@
 	<target name="jboss_deployment_descriptor"> 
 		<echo message="---------------- Running jboss_deployment_descriptor ------------"/>      
 		<ant dir="jboss_deployment_descriptor" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="jboss_deployment_descriptor" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="jboss_deployment_descriptor" antfile="build.xml" target="clean"/>
 	</target>
 
-	<target name="jca/inflow/swiftmq">    
-		<echo message="---------------- Running jca/inflow/swiftmq ------------"/>   
-		<ant dir="jca/inflow/swiftmq" antfile="build.xml"/>
-		<sleep seconds="5"/>
-		<ant dir="jca/inflow/swiftmq" antfile="build.xml" target="run"/>
-		<sleep seconds="4"/>
-		<ant dir="jca/inflow/swiftmq" antfile="build.xml" target="clean"/>
+	<target name="jca_inflow_quartz">    
+		<echo message="---------------- Running jca_inflow_quartz ------------"/>   
+		<ant dir="jca_inflow_quartz" antfile="build.xml"/>
+		<sleep seconds="10"/>
+		<ant dir="jca_inflow_quartz" antfile="build.xml" target="clean"/>
 	</target>
 
 	<target name="jndibinding">  
@@ -287,13 +250,11 @@
 		<ant dir="merge" antfile="build.xml" target="clean"/>
 	</target>
 
-	<target name="packaging">   
-		<echo message="---------------- Running packaging ------------"/>    
-		<ant dir="packaging" antfile="build.xml"/>
-		<sleep seconds="5"/>
-		<ant dir="packaging" antfile="build.xml" target="run"/>
-		<sleep seconds="4"/>
-		<ant dir="packaging" antfile="build.xml" target="clean"/>
+	<target name="reference21_30">   
+		<echo message="---------------- Running reference21_30 ------------"/>    
+		<ant dir="reference21_30" antfile="build.xml"/>
+		<sleep seconds="6"/>
+		<ant dir="reference21_30" antfile="build.xml" target="clean"/>
 	</target>
 
 	<target name="relationships">  
@@ -303,6 +264,13 @@
 		<ant dir="relationships" antfile="build.xml" target="run"/>
 		<sleep seconds="4"/>
 		<ant dir="relationships" antfile="build.xml" target="clean"/>
+	</target>
+	
+	<target name="resource_ref">  
+			<echo message="---------------- Running resource_ref ------------"/>     
+			<ant dir="resource_ref" antfile="build.xml"/>
+			<sleep seconds="10"/>
+			<ant dir="resource_ref" antfile="build.xml" target="clean"/>
 	</target>
 
 	<target name="secondary">   
@@ -389,8 +357,9 @@
 	<target name="tableperinheritance">       
 		<echo message="---------------- Running tableperinheritance ------------"/>
 		<ant dir="tableperinheritance" antfile="build.xml"/>
-		<sleep seconds="5"/>
-		<ant dir="tableperinheritance" antfile="build.xml" target="run"/>
+		<sleep seconds="10"/>
+		<!-- TODO: Bug in HSQLDB, so commenting out temporarily -->
+		<!-- ant dir="tableperinheritance" antfile="build.xml" target="run"/ --> 
 		<sleep seconds="4"/>
 		<ant dir="tableperinheritance" antfile="build.xml" target="clean"/>
 	</target>
@@ -398,9 +367,9 @@
 	<target name="timer">    
 		<echo message="---------------- Running timer ------------"/>   
 		<ant dir="timer" antfile="build.xml"/>
-		<sleep seconds="5"/>
+		<sleep seconds="10"/>
 		<ant dir="timer" antfile="build.xml" target="run"/>
-		<sleep seconds="4"/>
+		<sleep seconds="8"/>
 		<ant dir="timer" antfile="build.xml" target="clean"/>
 	</target>
 
