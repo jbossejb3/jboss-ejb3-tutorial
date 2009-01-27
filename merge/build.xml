@@ -22,6 +22,11 @@
       <fileset dir="${jboss.home}/client">
          <include name="**/jbossall-client.jar"/>
       </fileset>
+	<!-- javax.persistence.* -->
+		<fileset dir="${jboss.home}/common/lib">
+	   			<include name="ejb3-persistence.jar"/>
+	   	</fileset>
+
       <pathelement location="${build.classes.dir}"/>
    </path>
 	
