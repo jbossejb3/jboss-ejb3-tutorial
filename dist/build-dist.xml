@@ -17,13 +17,14 @@
 		<zip zipfile="${dist.dir}/${dist.zip}">
 	         <zipfileset dir="${tutorials.dir}" prefix="source">
 	         	<exclude name="**/target/**/*"/>
+	         	<exclude name="**/dist/**/*"/>
 	         </zipfileset>
 			
 			<zipfileset dir="${guide.dir}/target/docbook" prefix="guide">
 				<include name="html/**/*"/>
 				<include name="html_single/**/*"/>
 			</zipfileset>
-		      	
+		    <zipfileset file="${basedir}/Readme.txt"/>  	
 		</zip>
 	</target>
 	
@@ -31,12 +32,15 @@
 		<tar destfile="${dist.dir}/${dist.tar}" compression="gzip">
 			<tarfileset dir="${tutorials.dir}" prefix="source">
 				<exclude name="**/target/**/*"/>
+				<exclude name="**/dist/**/*"/>
 			</tarfileset>
 			
 			<tarfileset dir="${guide.dir}/target/docbook" prefix="guide">
 				<include name="html/**/*"/>
 				<include name="html_single/**/*"/>
 			</tarfileset>
+			<tarfileset file="${basedir}/Readme.txt"/>
+			
 		</tar>
 	
 	</target>

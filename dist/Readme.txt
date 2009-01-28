@@ -2,7 +2,7 @@
 Instructions to setup the EJB3 tutorials
 ------------------------------------------
 
-* Extract the downloaded .zip/.tar.gz to some location on your system. For ex: /home/xyz/JBossEJB3
+* Extract the .zip/.tar.gz to some location on your system. For ex: /home/xyz/JBossEJB3
 * After you have extracted, you will find two folders namely "guide" and "source"
 * The "guide" contains html version of the tutorial documentation and will help you in building and running the tutorials.
 * The "source" contains multiple tutorials which illustrate various features of EJB3.
