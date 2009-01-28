@@ -28,17 +28,17 @@ class with <literal>@javax.ejb.Local</literal> for it to be the local interface 
 	</para>
 
 	<para>
-		<sect4>
+		<sect5>
 JNDI Bindings
-		</sect4>
+		</sect5>
 The Calculator bean will have two JNDI bindings for the remote and Local interface.  
 By default, JBoss will use ejbName/local and ejbName/remote for the local and remote interfaces, respectively.
 	</para>
 
 	<para>
-		<sect4>
+		<sect5>
 Client
-		</sect4>
+		</sect5>
 Open up <literal>org.jboss.tutorial.stateless.client.Client</literal>.
 You'll see that it looks up the stateless bean under "ejbName/remote". Also notice that there is no Home interface and 
 you can begin executing on the stateless bean right away.
@@ -46,9 +46,9 @@ you can begin executing on the stateless bean right away.
 	</para>
 
 	<para>
-		<sect4>
+		<sect5>
 Building and Running
-		</sect4>
+		</sect5>
 		
 		<note>
 			<para>

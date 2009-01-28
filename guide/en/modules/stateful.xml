@@ -18,9 +18,9 @@
 	</para>
 
 	<para>
-		<sect4>
+		<sect5>
 @Remove
-		</sect4>
+		</sect5>
 	Take another look at <literal>org.jboss.tutorial.stateful.bean.ShoppingCartBean</literal>. 
 	Look for the method annotated as @Remove. Instead of explicitly calling EJBObject.remove() in your applications and thus polluting it 
 	further with J2EE specific code, any method tagged with @Remove will cause the stateful bean instance to be removed from the container 
@@ -28,17 +28,17 @@
 	</para>
 
 	<para>
-		<sect4>
+		<sect5>
 JNDI Bindings
-		</sect4>
+		</sect5>
 	The ShoppingCartBean will have its remote interface bound in JNDI, by default, under the ejbName/local and/or ejbName/remote for 
 	the local and remote interfaces, respectively.
 	</para>
 
 	<para>
-		<sect4>
+		<sect5>
 Client
-		</sect4>
+		</sect5>
 	Open up <literal>org.jboss.tutorial.stateful.client.Client</literal>.
   	You'll see that it looks up the stateful bean under "ejbName/remote". Also notice that there is no Home interface and you can begin 
   	executing on the stateful bean right away. When you access the bean in JNDI, an instance of the stateful bean will be created on the server. 
@@ -47,9 +47,9 @@ Client
 	</para>
 
 	<para>
-		<sect4>
+		<sect5>
 Building and Running
-		</sect4>
+		</sect5>
 		
 		<note>
 			<para>
