@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="Merging and Basic Queries on entities">
+<chapter id="Merging_and_Basic_Queries_on_entities">
 	<title>Introduction to merging and querying of entities in EJB3</title>
 	<para>
 		This example shows a bunch of things. First, it introduces the <literal>@Column</literal> annotation. 

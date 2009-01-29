@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="Caching EJB3 Entities">
+<chapter id="Caching_EJB3_Entities">
 	<title>Caching EJB3 Entities</title>
 	<para>
 		This tutorial shows you how to cache your entities using EJB 3.0 for JBoss

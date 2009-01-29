@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="EJB2.1 and EJB3 references">
+<chapter id="EJB2.1_and_EJB3_references">
 	<title>Referencing EJB3 beans in EJB2.1 and vice versa</title>
 	<para>
 		EJB3 beans may reference EJB2.1 and vice versa. This tutorial demonstrates mechanisms for such references.

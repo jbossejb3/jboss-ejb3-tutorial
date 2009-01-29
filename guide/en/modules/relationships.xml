@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="EJB3 Entity Relationships">
+<chapter id="EJB3_Entity_Relationships">
 	<title>Introduction to relationships between EJB3 entities</title>
 	<para>
 		The "entity" tutorial only showed one-to-many and many-to-one relationships.

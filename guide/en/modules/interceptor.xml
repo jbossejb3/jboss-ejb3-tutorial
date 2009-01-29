@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="EJB3 Interceptors">
+<chapter id="EJB3_Interceptors">
 	<title>Introduction to EJB3 Interceptors</title>
 	<para>
 		The EJB 3.0 spec defines the ability to apply custom made interceptors

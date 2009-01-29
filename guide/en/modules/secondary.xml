@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="Secondary Tables for EJB3 Entities">
+<chapter id="Secondary_Tables_for_EJB3_Entities">
 	<title>Introduction to Secondary tables for EJB3 entities</title>
 	<para>
 		The EJB specification allows you to map an entity bean to multiple tables. You do this by using the <literal>@SecondaryTable</literal>

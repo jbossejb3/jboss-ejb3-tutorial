@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="Message Driven Beans">
+<chapter id="Message_Driven_Beans">
 	<title>Introduction to Message Driven Beans in EJB3</title>
 	<para>
 		This example shows you how to implement an MDB with EJB 3.0 using annotations.

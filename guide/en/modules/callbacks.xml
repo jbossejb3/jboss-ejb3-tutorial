@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="Callbacks and Callback Handlers">
+<chapter id="Callbacks_and_Callback_Handlers">
 	<title>Introduction to Callbacks and Callback Handlers in EJB3</title>
 	
 		The EJB 3.0 specification defines some callbacks, and allows you to handle these by implementing your own callback handlers.

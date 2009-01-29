@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="jboss.xml deployment descriptor">
+<chapter id="jboss.xml_deployment_descriptor">
 	<title>Usage of JBoss specific deployment descriptors</title>
 
 	<para>

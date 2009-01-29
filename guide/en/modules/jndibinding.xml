@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="JNDI Bindings">
+<chapter id="JNDI_Bindings">
 	<title>Binding your beans in JNDI</title>
 	<para>
 		By default, when the application is deployed in a jar, session beans will bind to JNDI in the form <literal>ejbName/remote</literal> for remote 

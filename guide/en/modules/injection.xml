@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="Dependency Injection">
+<chapter id="Dependency_Injection">
 	<title>Introduction to dependency injection</title>
 	<para>
 		To facilitate test driven development, the EJB 3.0 specification allows you to use annotations to inject 

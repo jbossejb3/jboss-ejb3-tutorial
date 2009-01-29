@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<chapter id="Extended Persistence Contexts">
+<chapter id="Extended_Persistence_Contexts">
 	<title>Introduction to Extended Persistence Contexts</title>
 	<para>
 		Usually, an EntityManager in JBoss EJB 3.0 lives and dies within a JTA transaction. Once the transaction is finished,
