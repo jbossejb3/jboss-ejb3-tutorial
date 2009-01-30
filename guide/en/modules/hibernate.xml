@@ -47,7 +47,8 @@ public class CustomerBean implements CustomerRemote
 	<sect5>
       Accessing org.hibernate.Session and org.hibernate.Query from EntityManager:
       <para>
-         You can get access to the current underlying Hibernate Session by typecasting your reference to EntityManager.
+         You can get access to the current underlying Hibernate Session by calling the <literal>getDelegate</literal> method on the 
+         EntityManager :
       
       	<programlisting>
       		<![CDATA[
@@ -60,12 +61,11 @@ public class AnotherCustomerBean implements CustomerRemote
    @PersistenceContext
    private EntityManager em;
          	
-	public Customer getCustomer(long id)
-	{
-      	org.jboss.ejb3.entity.HibernateSession hibernateSession = (HibernateSession) em;
-      	org.hibernate.Session session = hibernateSession.getHibernateSession();
-      	return (Customer) session.get(Customer.class, id);
-	}
+   public Customer getCustomer(long id)
+   {
+      org.hibernate.Session session = (Session) em.getDelegate();
+      return (Customer) session.get(Customer.class, id);
+   }
 ...
 			]]>
       	</programlisting>
@@ -123,7 +123,7 @@ run:
      [java] Found customer Jai NoLastName with id = 3
      [java] Searching for customers with first name Jai
      [java] Found 2 customers with first name Jai
-     [java] Searching for customers with first name Jai
+     [java] Searching for customers with first name Jaikiran
      [java] Found 1 customers with first name Jaikiran
      
      ]]>
