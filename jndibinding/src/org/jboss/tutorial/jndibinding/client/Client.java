@@ -21,9 +21,11 @@
  */
 package org.jboss.tutorial.jndibinding.client;
 
-import org.jboss.tutorial.jndibinding.bean.Calculator;
-
 import javax.naming.InitialContext;
+
+import org.jboss.tutorial.jndibinding.bean.Calculator;
+import org.jboss.tutorial.jndibinding.bean.Customer;
+import org.jboss.tutorial.jndibinding.bean.CustomerManager;
 
 public class Client
 {
@@ -34,5 +36,13 @@ public class Client
 
       System.out.println("1 + 1 = " + calculator.add(1, 1));
       System.out.println("1 - 1 = " + calculator.subtract(1, 1));
+      
+      // now let's use the customer bean to ensure that the entity manager is bound
+      // to jndi
+      CustomerManager customerManager = (CustomerManager) ctx.lookup("CustomerManager");
+      long id = customerManager.createCustomer("Jaikiran");
+      System.out.println("Created customer with id = " + id);
+      Customer customer = customerManager.getCustomer(id);
+      System.out.println("Customer's name is " + customer.getName());
    }
 }
