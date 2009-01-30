@@ -34,6 +34,7 @@
 <!ENTITY service_deployment_descriptor          SYSTEM "modules/service_deployment_descriptor.xml">
 <!ENTITY jca_inflow_quartz          SYSTEM "modules/jca_inflow_quartz.xml">
 <!ENTITY tableperinheritance          SYSTEM "modules/tableperinheritance.xml">
+<!ENTITY hibernate          SYSTEM "modules/hibernate.xml">
 <!ENTITY todo          SYSTEM "modules/todo.xml">
 ]>
 <book lang="en">
@@ -48,5 +49,8 @@
     <title>Target Audience</title>
     <para>This tutorial is meant for EJB3 application developers on JBoss Application Server. The tutorial walks you through the EJB 3.0 features and how they deploy to JBoss.  Please check the <xref linkend="Installation">install guide</xref> for system requirements.</para>
   </preface>
-&installing;&stateless;&stateful;&blob;&cachedentity;&callbacks;&composite;&dependency;&ejb21_client_adaptors;&embeddable;&enterprise_app_ejb_injection;&entity;&extended_pc;&injection;&interceptor;&jboss_deployment_descriptor;&jca_inflow_quartz;&jndibinding;&joininheritance;&mdb;&mdb_deployment_descriptor;&merge;&reference21_30;&relationships;&resource_ref;&secondary;&security;&service;&service_deployment_descriptor;&singleinheritance;&stateful_deployment_descriptor;&stateless_deployment_descriptor;&tableperinheritance;&timer;&todo;
+&installing;&stateless;&stateful;&blob;&cachedentity;&callbacks;&composite;&dependency;&ejb21_client_adaptors;&embeddable;&enterprise_app_ejb_injection;&entity;&extended_pc;&injection;&interceptor;&jboss_deployment_descriptor;&jca_inflow_quartz;&jndibinding;&joininheritance;&mdb;&mdb_deployment_descriptor;&merge;&reference21_30;&relationships;&resource_ref;&secondary;&security;&service;&service_deployment_descriptor;&singleinheritance;
+&stateful_deployment_descriptor;&stateless_deployment_descriptor;&tableperinheritance;&timer;
+&hibernate;&todo;
+
 </book>
