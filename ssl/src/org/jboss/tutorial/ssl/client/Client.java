@@ -41,13 +41,14 @@ public class Client
       securityClient.login();
       
       InitialContext ctx = new InitialContext();
-      Calculator calculator = (Calculator) ctx.lookup("CalculatorBean/remote");
-
+      // let's use the bean whose proxy communicates via ssl
+      Calculator sslCalculator = (Calculator) ctx.lookup("CalculatorBean/remote");
+      System.out.println("Invoking bean methods on a proxy through sslsocket");
       System.out.println("Kabir is a student.");
       System.out.println("Kabir types in the wrong password");
       try
       {
-         System.out.println("1 + 1 = " + calculator.add(1, 1));
+         System.out.println("1 + 1 = " + sslCalculator.add(1, 1));
          throw new RuntimeException("ERROR - User with incorrect password allowed to operate on bean");
       }
       catch (EJBAccessException ex)
@@ -64,12 +65,12 @@ public class Client
       securityClient.login();
       
 
-      System.out.println("1 + 1 = " + calculator.add(1, 1));
+      System.out.println("1 + 1 = " + sslCalculator.add(1, 1));
 
       System.out.println("Kabir is not a teacher so he cannot do division");
       try
       {
-         calculator.divide(16, 4);
+         sslCalculator.divide(16, 4);
          throw new RuntimeException("ERROR - User with insufficient role was allowed to operate on bean");
       }
       catch (EJBAccessException  ex)
@@ -78,6 +79,13 @@ public class Client
       }
 
       System.out.println("Kabir is a student, and students are allowed to do subtraction");
-      System.out.println("1 - 1 = " + calculator.subtract(1, 1));
+      System.out.println("1 - 1 = " + sslCalculator.subtract(1, 1));
+      
+      // Now let's use the bean whose proxy communicates via normal socket: protocol
+      Calculator normalCalculator = (Calculator) ctx.lookup("CalculatorNormal");
+      // do some operation
+      System.out.println("Invoking bean methods on a proxy through normal socket");
+      System.out.println("Kabir is a student. So he can do addition");
+      System.out.println("2 + 2 = " + normalCalculator.add(2, 2));
    }
 }
