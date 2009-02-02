@@ -116,7 +116,7 @@ Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct?
       					
       					]]>
       				</programlisting>
-      				<literal>alias</literal> is the name ("ejb2-ssl") of the key pair within the keystore. <literal>keypass</literal> 
+      				<literal>alias</literal> is the name ("ejb3-ssl") of the key pair within the keystore. <literal>keypass</literal> 
       				is the password ("opensource") for the keystore, and <literal>keystore</literal> specifies the location ("localhost.keystore") of the keystore to create/add to.
       			</para>
       			<para>

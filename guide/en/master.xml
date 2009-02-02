@@ -37,6 +37,8 @@
 <!ENTITY hibernate          SYSTEM "modules/hibernate.xml">
 <!ENTITY asynch          SYSTEM "modules/asynch.xml">
 <!ENTITY ssl          SYSTEM "modules/ssl.xml">
+<!ENTITY partial_deployment_descriptor          SYSTEM "modules/partial_deployment_descriptor.xml">
+<!ENTITY consumer          SYSTEM "modules/consumer.xml">
 <!ENTITY todo          SYSTEM "modules/todo.xml">
 ]>
 <book lang="en">
@@ -53,6 +55,9 @@
   </preface>
 &installing;&stateless;&stateful;&blob;&cachedentity;&callbacks;&composite;&dependency;&ejb21_client_adaptors;&embeddable;&enterprise_app_ejb_injection;&entity;&extended_pc;&injection;&interceptor;&jboss_deployment_descriptor;&jca_inflow_quartz;&jndibinding;&joininheritance;&mdb;&mdb_deployment_descriptor;&merge;&reference21_30;&relationships;&resource_ref;&secondary;&security;&service;&service_deployment_descriptor;&singleinheritance;
 &stateful_deployment_descriptor;&stateless_deployment_descriptor;&tableperinheritance;&timer;
-&hibernate;&asynch;&todo;
+&hibernate;&asynch;
+&partial_deployment_descriptor;
+&consumer;
+&todo;
 
 </book>
