@@ -92,8 +92,8 @@
 			<module>init</module>
 
 			<!-- The tutorials go here -->
- 
-			
+ 			
+			 
 		   	<module>asynch</module> 	
 		  	<module>blob</module>
 		  	<module>cachedentity</module>
@@ -117,6 +117,7 @@
 			<module>mdb</module>
 			<module>mdb_deployment_descriptor</module>
 			<module>merge</module>
+			<module>partial_deployment_descriptor</module>
 			<module>reference21_30</module>
 			<module>relationships</module>
 			<module>resource_ref</module>
@@ -133,7 +134,7 @@
 			<module>tableperinheritance</module>
 			<module>timer</module>
 			<module>webservice</module>
-   
+
   
 			<!-- Responsible for JBossAS shutdown -->
 			<module>shutdown</module>
