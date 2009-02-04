@@ -30,7 +30,7 @@ public int add(int x, int y)
 	<sect5>
 		Security :
 		<para>
-			Take a look at <listing>org.jboss.tutorial.security.bean.CalculatorBean</listing>. The <literal>@javax.annotation.security.RolesAllowed</literal>
+			Take a look at <literal>org.jboss.tutorial.security.bean.CalculatorBean</literal>. The <literal>@javax.annotation.security.RolesAllowed</literal>
 			and <literal>@javax.annotation.security.PermitAll</literal> are the EJB 3.0 security annotations. You can attach a method permission to any method
 			and define which roles are allowed to invoke on that method. The <literal>javax.ejb.RunAs</literal> annotation can also be applied at the class
 			level. There is also an additional JBoss specific annotation that you must supply at the class level <literal>@org.jboss.ejb3.annotation.SecurityDomain</literal>.
