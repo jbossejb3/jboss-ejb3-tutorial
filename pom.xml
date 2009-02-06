@@ -1,36 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
   The parent maven for the ejb3 tutorials project
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	   
-  <properties>
-	  	<!--  The jboss.home "intermediate" property would not have been necessary, if
-	  	Maven's enforcer plugin supported enforcing setting of a "System" environment variable.
-	  	Details here http://markmail.org/message/jwfmtrjesuyag7bh
-	  	
-	  	This intermediate property is a workaround to use in the enforcer plugin to ensure that
-	  	the JBOSS_HOME is set. And now that we have an intermediate jboss.home, let's use this throughout
-	  	the pom instead of JBOSS_HOME.
-	  	 -->
-	  	<jboss.home>${JBOSS_HOME}</jboss.home>
-	  	<!--  The JBoss server profile which will be used by the tutorials for
-		deploying the application. Individual tutorials can override this value
-		in their pom.xml depending on their need. --> 
-	    <jboss.server.config>all</jboss.server.config>
-	    
-  	</properties>
-  <!-- Parent - The jboss-ejb3-build will act as a parent
-   
+
+
+  <!-- Parent - The jboss-ejb3-tutorial-build will act as a parent
+
    -->
 
   <parent>
     <groupId>org.jboss.ejb3</groupId>
-    <artifactId>jboss-ejb3-build</artifactId>
-    <version>1.0.0-Beta10</version>
+    <artifactId>jboss-ejb3-tutorial-build</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>./build</relativePath>
   </parent>
 
 
@@ -44,108 +30,79 @@
   <description>
     Tutorial for JBoss EJB3
   </description>
-  
-  
 
-	<build>
-		<plugins>
-			<!-- Plugin to enforce JBOSS_HOME is set -->
-      		<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-enforcer-plugin</artifactId>
-        		<executions>
-          			<execution>
-            			<id>enforce-property</id>
-            			<!--  We need to enforce this when we use JBossAS during deploying the
-            			tutorial in pre-integration-test phase. See common/pom.xml for details -->
-						<phase>pre-integration-test</phase>
-            			<goals>
-              				<goal>enforce</goal>
-            			</goals>
-            			<configuration>
-	              			<rules>
-	                			<requireProperty>
-	                  				<property>jboss.home</property>
-	                  				<message>"Please set JBOSS_HOME"</message>
-				                </requireProperty>
-	            			</rules>  
-	            			<fail>true</fail>
-            			</configuration>
-		          </execution>
-        		</executions>
-      		</plugin>
-      		      		
-      	</plugins>
-	</build>
-	
-	<modules>
-			<!-- The init module is responsible for starting up the JBossAS.
-			This is a bit ugly, since the init project does nothing other than triggering
-			a server start.	Maven doesn't have a "init" phase where we could have added
-			this server start activity. And we don't want to start the server for
-			every module (tutorial), hence this separate init module.
-		
-			The shutdown is similarly handled by a separate "shutdown" module which is
-			the last module to be called. If something fails before the shutdown module is
-			invoked, there's a Java Shutdownhook in the jbossas-server-manager which cleanly
-			shuts down the JBossAS -->
-			<module>init</module>
 
-			<!-- The tutorials go here -->
- 			
-			 
-		   	<module>asynch</module> 	
-		  	<module>blob</module>
-		  	<module>cachedentity</module>
-		 	<module>callbacks</module>
-		 	<module>composite</module>
-		 	<module>consumer</module> 
-		 	<module>consumer_deployment_descriptor</module>
-		 	<module>dependency</module>
-		 	<module>ejb21_client_adaptors</module>
-		 	<module>embeddable</module>
-		 	<module>enterprise_app_ejb_injection</module>
-			<module>entity</module>
-			<module>extended_pc</module>
-			<module>guide</module>
-			<module>injection</module>
-			<module>interceptor</module>  
-			<module>jboss_deployment_descriptor</module>
-			<module>jca_inflow_quartz</module>
-			<module>jndibinding</module> 
-			<module>joininheritance</module> 
-			<module>mdb</module>
-			<module>mdb_deployment_descriptor</module>
-			<module>merge</module>
-			<module>partial_deployment_descriptor</module>
-			<module>reference21_30</module>
-			<module>relationships</module>
-			<module>resource_ref</module>
-			<module>secondary</module>
-			<module>security</module>
-			<module>service</module>
-			<module>service_deployment_descriptor</module>
-			<module>singleinheritance</module>
-			<module>ssl</module>
-			<module>stateful</module>
-			<module>stateful_deployment_descriptor</module>
-			<module>stateless</module>
-			<module>stateless_deployment_descriptor</module>
-			<module>tableperinheritance</module>
-			<module>timer</module>
-			<module>webservice</module>
 
-  
-			<!-- Responsible for JBossAS shutdown -->
-			<module>shutdown</module>
-  
+
+
+  <modules>
+      <!-- The init module is responsible for starting up the JBossAS.
+      This is a bit ugly, since the init project does nothing other than triggering
+      a server start.	Maven doesn't have a "init" phase where we could have added
+      this server start activity. And we don't want to start the server for
+      every module (tutorial), hence this separate init module.
+
+      The shutdown is similarly handled by a separate "shutdown" module which is
+      the last module to be called. If something fails before the shutdown module is
+      invoked, there's a Java Shutdownhook in the jbossas-server-manager which cleanly
+      shuts down the JBossAS -->
+      <module>init</module>
+
+      <!-- The tutorials go here -->
+
+
+         <module>asynch</module>
+        <module>blob</module>
+        <module>cachedentity</module>
+       <module>callbacks</module>
+       <module>composite</module>
+       <module>consumer</module>
+       <module>consumer_deployment_descriptor</module>
+       <module>dependency</module>
+       <module>ejb21_client_adaptors</module>
+       <module>embeddable</module>
+       <module>enterprise_app_ejb_injection</module>
+      <module>entity</module>
+      <module>extended_pc</module>
+      <module>guide</module>
+      <module>injection</module>
+      <module>interceptor</module>
+      <module>jboss_deployment_descriptor</module>
+      <module>jca_inflow_quartz</module>
+      <module>jndibinding</module>
+      <module>joininheritance</module>
+      <module>mdb</module>
+      <module>mdb_deployment_descriptor</module>
+      <module>merge</module>
+      <module>partial_deployment_descriptor</module>
+      <module>reference21_30</module>
+      <module>relationships</module>
+      <module>resource_ref</module>
+      <module>secondary</module>
+      <module>security</module>
+      <module>service</module>
+      <module>service_deployment_descriptor</module>
+      <module>singleinheritance</module>
+      <module>ssl</module>
+      <module>stateful</module>
+      <module>stateful_deployment_descriptor</module>
+      <module>stateless</module>
+      <module>stateless_deployment_descriptor</module>
+      <module>tableperinheritance</module>
+      <module>timer</module>
+      <module>webservice</module>
+
+
+      <!-- Responsible for JBossAS shutdown -->
+      <module>shutdown</module>
+
   </modules>
 
 
-	
-  
-    
-  
+
+
+
+
 
 
 </project>
