@@ -8,17 +8,17 @@
 
    <property environment="env"/>
    <property name="src.dir" value="${basedir}/src"/>
-	<property name="jboss.home" value="${env.JBOSS_HOME}"/>
-	<property name="jboss.server.config" value="default"/>
-	<property name="build.dir" value="${basedir}/build"/>
-   	<property name="build.classes.dir" value="${build.dir}/classes"/>
-	<property name="build.artifact" value="jboss-ejb3-tutorial-mdb.jar"/>
+  <property name="jboss.home" value="${env.JBOSS_HOME}"/>
+  <property name="jboss.server.config" value="default"/>
+  <property name="build.dir" value="${basedir}/build"/>
+     <property name="build.classes.dir" value="${build.dir}/classes"/>
+  <property name="build.artifact" value="jboss-ejb3-tutorial-mdb.jar"/>
 
    <!-- Build classpath -->
    <path id="classpath">
       <!-- So that we can get jndi.properties for InitialContext -->
       <pathelement location="${basedir}"/>
-   		<!-- Only the jbossall-client.jar should ideally be sufficient -->
+       <!-- Only the jbossall-client.jar should ideally be sufficient -->
       <fileset dir="${jboss.home}/client">
          <include name="**/jbossall-client.jar"/>
       </fileset>
@@ -54,14 +54,15 @@
          <fileset dir="${build.classes.dir}">
             <include name="**/*.class"/>
          </fileset>
+        <!-- Include the queue-example-service.xml and the custom-ejb3-interceptor-aop.xml in the META-INF of the jar -->
+        <fileset dir="${basedir}">
+            <include name="META-INF/*.xml"/>
+        </fileset>
+
       </jar>
-      <copy file="${basedir}/custom-ejb3-interceptors-aop.xml" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
-   	  <sleep seconds="8"/>
-      <copy file="${basedir}/queue-example-service.xml" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
-      <sleep seconds="8"/>
-     	
+
       <copy file="build/${build.artifact}" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
-   	  
+
    </target>
 
    <target name="run" depends="ejbjar">
@@ -79,11 +80,8 @@
 
    <target name="clean">
       <delete dir="${build.dir}"/>
-      <delete file="${jboss.home}/server/${jboss.server.config}/deploy/tutorial.jar"/>
       <delete file="${jboss.home}/server/${jboss.server.config}/deploy/${build.artifact}"/>
-   	  <delete file="${jboss.home}/server/${jboss.server.config}/deploy/queue-example-service.xml"/>
-   	  <delete file="${jboss.home}/server/${jboss.server.config}/deploy/custom-ejb3-interceptors-aop.xml"/>
-   	  
+
    </target>
 
 

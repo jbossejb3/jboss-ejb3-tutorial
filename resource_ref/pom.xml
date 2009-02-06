@@ -9,7 +9,7 @@
 
 	<!-- Model Version -->
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>org.jboss.ejb3</groupId>
 		<artifactId>jboss-ejb3-tutorial-common</artifactId>
@@ -18,11 +18,11 @@
 	</parent>
 
 	<properties>
-		<jboss.ejb3.tutorial.deployables>${basedir}/tutorial-jbossmq-destinations-service.xml,${pom.build.directory}/${pom.artifactId}.${pom.packaging}</jboss.ejb3.tutorial.deployables>
+
 		<ejb3.tutorial.client>org.jboss.tutorial.resource_ref.client.Client</ejb3.tutorial.client>
 
 	</properties>
-	
+
 
 	<artifactId>jboss-ejb3-tutorial-resource_ref</artifactId>
 	<version>0.1.0-SNAPSHOT</version>

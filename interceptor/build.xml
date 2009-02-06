@@ -63,8 +63,6 @@
             <include name="META-INF/*.xml"/>
          </fileset>
       </jar>
-   		<copy file="${basedir}/queue-example-service.xml" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
-   	  <sleep seconds="8"/>
       <copy file="build/${build.artifact}" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
    </target>
 
@@ -84,7 +82,7 @@
    <target name="clean">
       <delete dir="${build.dir}"/>
       <delete file="${jboss.home}/server/${jboss.server.config}/deploy/${build.artifact}"/>
-   		<delete file="${jboss.home}/server/${jboss.server.config}/deploy/queue-example-service.xml"/>
+
    </target>
 
 

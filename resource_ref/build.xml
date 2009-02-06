@@ -56,12 +56,10 @@
             <include name="**/*.class"/>
          </fileset>
          <fileset dir=".">
-            <include name="META-INF/ejb-jar.xml"/>
-            <include name="META-INF/jboss.xml"/>
+            <include name="META-INF/*.xml"/>
+
          </fileset>
       </jar>
-      <copy file="tutorial-jbossmq-destinations-service.xml" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
-   		<sleep seconds="5"/>
       <copy file="build/${build.artifact}" todir="${jboss.home}/server/${jboss.server.config}/deploy"/>
    </target>
 
@@ -81,7 +79,7 @@
    <target name="clean">
       <delete dir="${build.dir}"/>
       <delete file="${jboss.home}/server/${jboss.server.config}/deploy/${build.artifact}"/>
-      <delete file="${jboss.home}/server/${jboss.server.config}/deploy/tutorial-jbossmq-destinations-service.xml"/>
+
    </target>
 
 

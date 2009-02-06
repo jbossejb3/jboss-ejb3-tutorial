@@ -18,7 +18,7 @@
  * License along with this software; if not, write to the Free
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- */ 
+ */
 package org.jboss.tutorial.interceptor.bean;
 
 import javax.ejb.ActivationConfigProperty;
@@ -27,28 +27,26 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
+
 import org.jboss.ejb3.annotation.Depends;
 
 /**
- * 
+ *
  * @author <a href="kabir.khan@jboss.com">Kabir Khan</a>
  * @version $Revision$
  */
 @MessageDriven(activationConfig =
-{
-@ActivationConfigProperty(propertyName="destinationType", propertyValue="javax.jms.Queue"),
-@ActivationConfigProperty(propertyName="destination", propertyValue="queue/tutorial/accounts")
-})
+{@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
+      @ActivationConfigProperty(propertyName = "destination", propertyValue = "queue/tutorial/accounts")})
+@Depends("jboss.messaging.destination:service=Queue,name=trace")
 public class AccountsMDB implements MessageListener
 {
    public void onMessage(Message recvMsg)
    {
       try
       {
-         System.out.println(
-               "\n----------------\n" + 
-               "AccountsMDB - Got message " + ((TextMessage)recvMsg).getText() + "\n" +
-               "----------------");
+         System.out.println("\n----------------\n" + "AccountsMDB - Got message " + ((TextMessage) recvMsg).getText()
+               + "\n" + "----------------");
          //Do necessary bookkeeping
       }
       catch (JMSException e)
