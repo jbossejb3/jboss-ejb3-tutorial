@@ -18,7 +18,7 @@
   <parent>
     <groupId>org.jboss.ejb3</groupId>
     <artifactId>jboss-ejb3-tutorial-build</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-SNAPSHOT</version>
     <relativePath>../build</relativePath>
   </parent>
 
@@ -27,7 +27,7 @@
 
 
   <artifactId>jboss-ejb3-tutorial-init</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>EJB3 Tutorial Init</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
