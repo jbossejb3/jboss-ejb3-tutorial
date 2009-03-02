@@ -27,7 +27,7 @@
 
 
   <artifactId>jboss-ejb3-tutorial-shutdown</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>EJB3 Tutorial Cleanup</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
@@ -72,12 +72,4 @@
   </build>
   </profile>
   </profiles>
-
-
-
-  <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-shutdown-0.1.0</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-shutdown-0.1.0</developerConnection>
-    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-shutdown-0.1.0</url>
-  </scm>
 </project>
