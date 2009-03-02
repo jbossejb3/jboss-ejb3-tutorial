@@ -5,13 +5,7 @@
 
   
 
-  <properties>
-		
-	  	<!--  Versions -->
-	    
-	    <version.org.jboss.jbossas_jboss-as-client>5.0.0.GA</version.org.jboss.jbossas_jboss-as-client>
-  	</properties>
-   
+  
   <!-- Model Version -->
   <modelVersion>4.0.0</modelVersion>
 
@@ -47,7 +41,6 @@
       <dependency>
             <groupId>org.jboss.jbossas</groupId>
             <artifactId>jboss-as-client</artifactId>
-            <version>${version.org.jboss.jbossas_jboss-as-client}</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>

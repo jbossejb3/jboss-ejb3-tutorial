@@ -21,6 +21,9 @@
 		in their pom.xml depending on their need. -->
 	    <jboss.server.config>all</jboss.server.config>
 
+
+      <version.org.jboss.jbossas_jboss-as-client>5.0.1.GA</version.org.jboss.jbossas_jboss-as-client>
+
   	</properties>
   <!-- Parent - The jboss-ejb3-build will act as a parent
 
@@ -73,4 +76,17 @@
 
       	</plugins>
 	</build>
+  <!-- Dependency management -->
+  <dependencyManagement>
+    <dependencies>
+    <dependency>
+            <groupId>org.jboss.jbossas</groupId>
+            <artifactId>jboss-as-client</artifactId>
+            <version>${version.org.jboss.jbossas_jboss-as-client}</version>
+            <type>pom</type>
+    </dependency>
+      
+    </dependencies>
+  </dependencyManagement>
+
 </project>

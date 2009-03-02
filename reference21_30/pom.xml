@@ -5,12 +5,6 @@
 
   
 
-  <properties>
-		
-	  	<!--  Versions -->
-	    
-	    <version.org.jboss.jbossas_jboss-as-client>5.0.0.GA</version.org.jboss.jbossas_jboss-as-client>
-  	</properties>
    
   <!-- Model Version -->
   <modelVersion>4.0.0</modelVersion>
@@ -41,20 +35,16 @@
   	<module>enterprise_app</module>  
   </modules>
  
- 	<!-- Dependencies -->
+    <!-- Dependencies -->
 	<dependencies>
-  		
-      
-      <dependency>
+          <dependency>
             <groupId>org.jboss.jbossas</groupId>
             <artifactId>jboss-as-client</artifactId>
-            <version>${version.org.jboss.jbossas_jboss-as-client}</version>
             <type>pom</type>
-           
-        </dependency>
-      
-  	
-	</dependencies>
-  
+
+          </dependency>
+
+
+	</dependencies>  
 
 </project>
