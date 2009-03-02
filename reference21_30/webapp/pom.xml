@@ -26,7 +26,7 @@
 
 	<artifactId>jboss-ejb3-tutorial-reference21_30_webapp
 	</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Web application for "reference21_30" tutorial</name>
 	<url>http://labs.jboss.com/jbossejb3/
@@ -61,11 +61,4 @@
         </dependency>
 
 	</dependencies>
-
-
-  <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-reference21_30_webapp-0.1.0</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-reference21_30_webapp-0.1.0</developerConnection>
-    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-reference21_30_webapp-0.1.0</url>
-  </scm>
 </project>
