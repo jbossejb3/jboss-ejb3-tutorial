@@ -22,19 +22,11 @@
 
 
   <artifactId>jboss-ejb3-tutorial-callbacks</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Callbacks and Callback handlers in EJB3</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
   <description>
     Tutorial about Callbacks and Callback Handlers in EJB3
   </description>
-  
- 
-
-  <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-callbacks-0.1.0</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-callbacks-0.1.0</developerConnection>
-    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-callbacks-0.1.0</url>
-  </scm>
 </project>
