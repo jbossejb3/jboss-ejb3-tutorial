@@ -34,19 +34,6 @@
 	<module>ear</module>
   </modules>
  
- 	<!-- Dependencies -->
-	<dependencies>
-  		
-      
-      <dependency>
-            <groupId>org.jboss.jbossas</groupId>
-            <artifactId>jboss-as-client</artifactId>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-      
-  	
-	</dependencies>
   
 
 </project>
