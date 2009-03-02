@@ -1,10 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  The common parent pom that will be used by the EJB3 tutorials.
-
--->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<properties>
 		<!--  Comma delimited files which need to be deployed. The order in which the files will be deployed
@@ -17,14 +11,14 @@
 			Note that, since this is a space-delimited list, we won't support (as of now) argument value having a space
 			(We don't have a use-case to support this, right now, so let's keep this simple)
 		  -->
-		<jboss.ejb3.tutorial.client.args></jboss.ejb3.tutorial.client.args>
+		<jboss.ejb3.tutorial.client.args />
 
 		<!--  A space-delimited list of JVM arguments to be passed to the ${ejb3.tutorial.client}
 			Individual tutorial can provide their own value for this property. By default its empty.
 			Note that, since this is a space-delimited list, we won't support (as of now) argument value having a space
 			(We don't have a use-case to support this, right now, so let's keep this simple)
 		  -->
-		<jboss.ejb3.tutorial.client.jvmargs></jboss.ejb3.tutorial.client.jvmargs>
+		<jboss.ejb3.tutorial.client.jvmargs />
 
 	  	<!--  Versions -->
 	    <version.maven-jboss-as-control-plugin>0.1.1</version.maven-jboss-as-control-plugin>
@@ -47,7 +41,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.ejb3</groupId>
   <artifactId>jboss-ejb3-tutorial-common</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0</version>
   <packaging>pom</packaging>
   <name>JBoss EJB3 Tutorial Common Parent POM</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
@@ -140,17 +134,17 @@
 	                                <tasks unless="jboss.ejb3.tutorial.client.skip">
 	                                    <!--  The classpath for the tutorial client -->
 	                                    <path id="ejb3.tutorial.classpath">
-	                                        <pathelement location="${build.outputDirectory}"/>
+	                                        <pathelement location="${build.outputDirectory}" />
 	                                    </path>
 	                                    <!--  Individual tutorials are expected to set the ejb3.tutorial.client property -->
 	                                    <echo message="*********************************** JBoss EJB3 Tutorials ***********************************" />
 	                                    <echo message="**** Running ${ejb3.tutorial.client} ${jboss.ejb3.tutorial.client.args}" />
 	                                    <java classname="${ejb3.tutorial.client}" fork="yes" dir="." failonerror="true">
-	                                        <classpath refid="ejb3.tutorial.classpath"/>
-	                                        <classpath refid="maven.runtime.classpath"/>
+	                                        <classpath refid="ejb3.tutorial.classpath" />
+	                                        <classpath refid="maven.runtime.classpath" />
 	                                        <!-- Command line argument(s) -->
-	                                        <arg line="${jboss.ejb3.tutorial.client.args}"/>
-	                                        <jvmarg line="${jboss.ejb3.tutorial.client.jvmargs}"/>
+	                                        <arg line="${jboss.ejb3.tutorial.client.args}" />
+	                                        <jvmarg line="${jboss.ejb3.tutorial.client.jvmargs}" />
 	                                    </java>
 	                                    <echo message="********************************************************************************************" />
 	                                </tasks>
@@ -287,17 +281,17 @@
                                 <tasks unless="jboss.ejb3.tutorial.client.skip">
                                     <!--  The classpath for the tutorial client -->
                                     <path id="ejb3.tutorial.classpath">
-                                        <pathelement location="${build.outputDirectory}"/>
+                                        <pathelement location="${build.outputDirectory}" />
                                     </path>
                                     <!--  Individual tutorials are expected to set the ejb3.tutorial.client property -->
                                     <echo message="*********************************** JBoss EJB3 Tutorials ***********************************" />
                                     <echo message="**** Running ${ejb3.tutorial.client} ${jboss.ejb3.tutorial.client.args}" />
                                     <java classname="${ejb3.tutorial.client}" fork="yes" dir="." failonerror="true">
-                                        <classpath refid="ejb3.tutorial.classpath"/>
-                                        <classpath refid="maven.runtime.classpath"/>
+                                        <classpath refid="ejb3.tutorial.classpath" />
+                                        <classpath refid="maven.runtime.classpath" />
                                         <!-- Command line argument(s) -->
-                                        <arg line="${jboss.ejb3.tutorial.client.args}"/>
-                                        <jvmarg line="${jboss.ejb3.tutorial.client.jvmargs}"/>
+                                        <arg line="${jboss.ejb3.tutorial.client.args}" />
+                                        <jvmarg line="${jboss.ejb3.tutorial.client.jvmargs}" />
                                     </java>
                                     <echo message="********************************************************************************************" />
                                 </tasks>
@@ -391,4 +385,10 @@
         </dependency>
 	</dependencies>
 
+
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-common-0.1.0</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-common-0.1.0</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-common-0.1.0</url>
+  </scm>
 </project>
