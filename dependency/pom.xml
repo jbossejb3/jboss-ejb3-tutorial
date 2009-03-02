@@ -23,23 +23,11 @@
 
 
   <artifactId>jboss-ejb3-tutorial-dependency</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>JBoss EJB3 bean depending on a MBean</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
   <description>
     Tutorial about adding a dependency to a EJB3 in JBoss
   </description>
-  
-  
-  
-  
-
-
-
-  <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-dependency-0.1.0</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-dependency-0.1.0</developerConnection>
-    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-dependency-0.1.0</url>
-  </scm>
 </project>
