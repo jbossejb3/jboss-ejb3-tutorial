@@ -6,8 +6,8 @@
 	<properties>
 		
 	  	<!--  Versions -->
-	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb21_app>0.1.0-SNAPSHOT</version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb21_app>
-	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb3_app>0.1.0-SNAPSHOT</version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb3_app>
+	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb21_app>0.1.0</version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb21_app>
+	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb3_app>0.1.0</version.org.jboss.ejb3_jboss-ejb3-tutorial-reference21_30_ejb3_app>
 	
   	</properties>
 
