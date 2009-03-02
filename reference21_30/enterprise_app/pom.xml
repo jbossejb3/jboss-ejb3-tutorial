@@ -28,7 +28,7 @@
   <parent>
     <groupId>org.jboss.ejb3</groupId>
     <artifactId>jboss-ejb3-tutorial-common</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <relativePath>../../common</relativePath>
   </parent>
 
@@ -72,7 +72,7 @@
       <dependency>
             <groupId>org.jboss.jbossas</groupId>
             <artifactId>jboss-as-client</artifactId>
-            <version>${version.org.jboss.jbossas_jboss-as-client}</version>
+
             <type>pom</type>
             <!--  The scope needs to be set to provided, or else
             when the maven-ear-plugin tries to create an EAR, it includes

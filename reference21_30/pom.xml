@@ -35,16 +35,5 @@
   	<module>enterprise_app</module>  
   </modules>
  
-    <!-- Dependencies -->
-	<dependencies>
-          <dependency>
-            <groupId>org.jboss.jbossas</groupId>
-            <artifactId>jboss-as-client</artifactId>
-            <type>pom</type>
-
-          </dependency>
-
-
-	</dependencies>  
 
 </project>

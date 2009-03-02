@@ -13,9 +13,9 @@
 
   <parent>
     <groupId>org.jboss.ejb3</groupId>
-    <artifactId>jboss-ejb3-tutorial-reference21_30</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../</relativePath>
+    <artifactId>jboss-ejb3-tutorial-build</artifactId>
+    <version>0.1.0</version>
+    <relativePath>../../build</relativePath>
   </parent>
 
 	
@@ -28,4 +28,13 @@
     An EJB2.1 application (to be used with reference21_30 tutorial).
   </description>
   
+  <dependencies>
+      <dependency>
+            <groupId>org.jboss.jbossas</groupId>
+            <artifactId>jboss-as-client</artifactId>
+            <type>pom</type>
+
+        </dependency>
+  </dependencies>	 
+
 </project>
