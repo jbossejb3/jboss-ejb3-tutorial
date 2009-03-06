@@ -30,7 +30,7 @@
 
 	
   <artifactId>jboss-ejb3-tutorial-ejb_injection</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1-SNAPSHOT</version>
   <packaging>ear</packaging>
   <name>EAR for EJB injection in Servlet</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
@@ -68,10 +68,4 @@
         </dependency>
     
 	</dependencies>
-
-  <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-ejb_injection-1.1.0</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-ejb_injection-1.1.0</developerConnection>
-    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-ejb_injection-1.1.0</url>
-  </scm>
 </project>
