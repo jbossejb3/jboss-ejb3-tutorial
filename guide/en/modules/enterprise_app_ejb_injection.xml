@@ -6,7 +6,7 @@
 		This tutorial aims at showing how EJBs can be injected in a Servlet. In this tutorial we build an EAR file which
 		contains a EJB module (jar file) and a web module (war file).
 	</para>
-	
+
 	<para>
 		Take a look at the <literal>META-INF/application.xml</literal> file:
 		<programlisting>
@@ -28,11 +28,11 @@
     <ejb>jboss-ejb3-tutorial-enterprise_ejb3app.jar</ejb>
   </module>
 </application>
-			
+
 			]]>
 		</programlisting>
 	</para>
-	
+
 	<sect5>
 		EJB module:
 		<para>
@@ -44,12 +44,12 @@
 @Local(CalculatorLocal.class)
 public class CalculatorBean implements CalculatorRemote, CalculatorLocal
 {
-...				
+...
 				]]>
 			</programlisting>
 		</para>
 		We will be using this bean in the servlet for performing the <literal>add</literal> and <literal>subtract</literal> operations.
-		
+
 		<important>
 			<para>
 				When a EJB packaged in a jar file is deployed as part of an EAR, the default jndi-name for the business-remote interface
@@ -58,7 +58,7 @@ public class CalculatorBean implements CalculatorRemote, CalculatorLocal
 			</para>
 		</important>
 	</sect5>
-	
+
 	<sect5>
 		Web module:
 		<para>
@@ -80,11 +80,11 @@ public class CalculatorBean implements CalculatorRemote, CalculatorLocal
 
 <welcome-file-list>
 	<welcome-file>index.html</welcome-file>
-</welcome-file-list>				
-				
+</welcome-file-list>
+
 				]]>
 			</programlisting>
-		
+
 			The <literal>org.jboss.tutorial.enterpise_app_ejb_injection.bean.CalculatorLocal</literal> will be injected in the
 			<literal>org.jboss.tutorial.enterprise_app_ejb_injection.servlet.CalculatorActionServlet</literal> using the <literal>@EJB</literal>
 			annotation:
@@ -99,7 +99,7 @@ private CalculatorLocal calculator;
 public void setCalculator(CalculatorLocal calculator)
 {
    this.calculator = calculator;
-}			
+}
 				]]>
 			</programlisting>
 			<important>
@@ -107,25 +107,25 @@ public void setCalculator(CalculatorLocal calculator)
 					For the injection to take place in a web module, your web.xml should use the 2.5 version of the web-app xsd:
 					<programlisting>
 						<![CDATA[
-<web-app version="2.5" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
+<web-app version="2.5"
+	xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">					
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 						]]>
 					</programlisting>
 				</para>
 			</important>
-		
+
 		</para>
 	</sect5>
-	
+
 	<sect5>
 Building and Running
 	</sect5>
-		
+
 		<note>
 			<para>
-	To build and run the example, make sure you have installed JBoss 5.x. 
+	To build and run the example, make sure you have installed JBoss 5.x.
 	See the <xref linkend="JBossAS5">installation section</xref> for details.
 			</para>
 		</note>
@@ -145,18 +145,18 @@ $ ant
 	</programlisting>
 	<para>
 		This will deploy the ear into the JBossAS-5.x server ("default" configuration).
-	</para> 
+	</para>
 	<sect5 id="AccessTheWebApp">
 		To access the servlet, open a web browser and enter <ulink url="http://localhost:8080/jboss-ejb3-tutorial-enterprise_webapp">http://localhost:8080/jboss-ejb3-tutorial-enterprise_webapp</ulink>.
 		This will bring up a page where you can enter two number and either click on <literal>Add</literal> or <literal>subtract</literal>.
 	</sect5>
-	
+
 	<sect5>
-Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
+Maven Users: Make sure the AS is not running.
 	</sect5>
-	
+
 	<programlisting>
-$ mvn clean package
+$ mvn clean install -PRunSingleTutorial
 	</programlisting>
 	<para>
 		This will create the EAR in the <literal>target</literal> folder of the tutorial. Copy this EAR to the deploy folder of JBossAS-5.x

@@ -2,20 +2,20 @@
 <chapter id="Hibernate_Session_In_EJB3">
 	<title>Injecting Hibernate Session and Session Factory in JBoss EJB3</title>
 	<para>
-	
+
 		Persistent classes that are mapped using Hibernate *.hbm.xml files are supported in JBoss. The EJB3 Deployer will search the archive
 		for any <literal>.hbm.xml</literal> files and add them to the definition of the underlying Hibernate SessionFactory. These
          <literal>.hbm.xml</literal> files can be virtually anywhere within the archive under any java package or directory.
 		Take a look at the <literal>customer.hbm.xml</literal> for an example.
 	</para>
-	
+
 	<para>
          Class mappings defined in <literal>.hbm.xml</literal> files can be managed by EntityManagers just as annotated
          @Entity beans are.  Also, you are allowed to have relationships between a <literal>.hbm.xml</literal>
          mapped class and an EJB3 entity.  So, mixing/matching is allowed. Which means you can have some entities defined in .hbm.xml and
          some others through @Entity annotations.
      </para>
-     
+
 	<sect5>
       Injecting Hibernate Session and SessionFactory :
       <para>
@@ -28,7 +28,7 @@
          	<![CDATA[
 import org.hibernate.Query;
 import org.hibernate.Session;
-         	
+
 @Stateless
 @Remote(CustomerRemote.class)
 @RemoteBinding(jndiBinding = "CustBean")
@@ -37,19 +37,19 @@ public class CustomerBean implements CustomerRemote
 
    @PersistenceContext
    private Session session;
-         	
+
          	]]>
          </programlisting>
          Take a look at <literal>org.jboss.tutorial.hibernate.bean.CustomerBean</literal> for more details.
       </para>
     </sect5>
-      
+
 	<sect5>
       Accessing org.hibernate.Session and org.hibernate.Query from EntityManager:
       <para>
-         You can get access to the current underlying Hibernate Session by calling the <literal>getDelegate</literal> method on the 
+         You can get access to the current underlying Hibernate Session by calling the <literal>getDelegate</literal> method on the
          EntityManager :
-      
+
       	<programlisting>
       		<![CDATA[
 @Stateless
@@ -57,10 +57,10 @@ public class CustomerBean implements CustomerRemote
 @RemoteBinding (jndiBinding="AnotherCustBean")
 public class AnotherCustomerBean implements CustomerRemote
 {
-   
+
    @PersistenceContext
    private EntityManager em;
-         	
+
    public Customer getCustomer(long id)
    {
       org.hibernate.Session session = (Session) em.getDelegate();
@@ -71,10 +71,10 @@ public class AnotherCustomerBean implements CustomerRemote
       	</programlisting>
       	Take a look at <literal>org.jboss.tutorial.hibernate.bean.AnotherCustomerBean</literal> for more details.
    </para>
-   
+
    <para>
          You can get access to the current underlying Hibernate Query by typecasting your reference to a <code>org.hibernate.ejb.QueryImpl</code>.
-      
+
 		<programlisting>
       		<![CDATA[
 public List<Customer> getCustomers(String fname)
@@ -83,7 +83,7 @@ public List<Customer> getCustomers(String fname)
    org.hibernate.Query query = queryImpl.getHibernateQuery();
    return query.list();
 }
-      		
+
 			]]>
       </programlisting>
 	</para>
@@ -92,10 +92,10 @@ public List<Customer> getCustomers(String fname)
 	<sect5>
 Building and Running
 	</sect5>
-		
+
 		<note>
 			<para>
-	To build and run the example, make sure you have installed JBoss 5.x. 
+	To build and run the example, make sure you have installed JBoss 5.x.
 	See the <xref linkend="JBossAS5">installation section</xref> for details.
 			</para>
 		</note>
@@ -125,17 +125,17 @@ run:
      [java] Found 2 customers with first name Jai
      [java] Searching for customers with first name Jaikiran
      [java] Found 1 customers with first name Jaikiran
-     
+
      ]]>
 	</programlisting>
 
 	<sect5>
-Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
+Maven Users: Make sure the AS is not running.
 	</sect5>
-	
+
 	<programlisting>
-$ mvn clean install
-	</programlisting>      
-     
-	
+$ mvn clean install -PRunSingleTutorial
+	</programlisting>
+
+
 </chapter>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <chapter id="Security_and_Transactions_in_EJB3">
 	<title>Introduction to Security and Transactions in EJB3</title>
-		
+
 	<para>
-		The EJB 3.0 specification has made the XML deployment descriptors optional. This tutorial goes over how to 
+		The EJB 3.0 specification has made the XML deployment descriptors optional. This tutorial goes over how to
 		use the transaction and security annotations of EJB 3.0.
-		
+
 	</para>
 	<sect5>
 		Transactions :
@@ -20,13 +20,13 @@ public int add(int x, int y)
 {
    return x + y;
 }
-				
+
 				]]>
 			</programlisting>
-			
+
 		</para>
 	</sect5>
-	
+
 	<sect5>
 		Security :
 		<para>
@@ -38,10 +38,10 @@ public int add(int x, int y)
 			See the JBoss Application Server documentation for more details. In this particular example, the "other" domain is used.
 			The "other" domain corresponds to a users.properties and roles.properties files that contain cleartext user, password, and user/role associations.
 			If you open the tutorial jar file you will see these two files in there.
-			
+
 		</para>
 	</sect5>
-	
+
 	<sect5>
 		Client :
 		<para>
@@ -52,10 +52,10 @@ public int add(int x, int y)
 				<![CDATA[
 import org.jboss.security.client.SecurityClient;
 import org.jboss.security.client.SecurityClientFactory;
-				
+
 SecurityClient securityClient = SecurityClientFactory.getSecurityClient();
 securityClient.setSimple("kabir", "invalidpassword");
-securityClient.login();				
+securityClient.login();
 				]]>
 			</programlisting>
 			<note>
@@ -63,18 +63,18 @@ securityClient.login();
 			</note>
 		</para>
 	</sect5>
-	
+
 	<sect5>
-	
+
 Building and Running
 	<para>
 			<note>
 					<para>
-						To build and run the example, make sure you have installed JBoss 5.x. 
+						To build and run the example, make sure you have installed JBoss 5.x.
 						See the <xref linkend="JBossAS5">installation section</xref> for details.
 					</para>
 			</note>
-			From the command prompt, move to the "security" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>		
+			From the command prompt, move to the "security" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>
 			<sect5>
 		Ant Users:
 			</sect5>
@@ -100,25 +100,25 @@ run:
 
 		     ]]>
 			</programlisting>
-		
+
 			<sect5>
-		Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
-			</sect5>
-			
-			<programlisting>
-$ mvn clean install
+Maven Users: Make sure the AS is not running.
+	</sect5>
+
+	<programlisting>
+$ mvn clean install -PRunSingleTutorial
 			</programlisting>
-							
+
 		</para>
 		<note>
 			<para>
 				If you want to change the roles for the user, through the roles.properties, you will have to
-				restart the server, for the role changes to take effect. This is because by default JBoss caches the roles for a 
+				restart the server, for the role changes to take effect. This is because by default JBoss caches the roles for a
 				user and until the cache is flushed, either through this <ulink url="http://www.jboss.org/community/docs/DOC-9246">configuration</ulink>
 				or through server restart, the changes won't take effect.
 			</para>
 		</note>
-	</sect5>	
-	
-		
+	</sect5>
+
+
 </chapter>

@@ -6,22 +6,22 @@
 		and map the properties of this embedded value object to columns within the entity's
 		table.
 	</para>
-	
+
 	<para>
 	The <literal>org.jboss.tutorial.embeddable.bean.Customer</literal> entity encapsulates the name of the customer
 	in the <literal>org.jboss.tutorial.embeddable.bean.Name</literal> value object. The
 	<literal>org.jboss.tutorial.embeddable.bean.Name</literal> value object must be tagged with the <literal>@Embeddable</literal>
 	annotation.
-	
+
 	<programlisting>
 	<![CDATA[
 @Embeddable
 public class Name implements java.io.Serializable
 	]]>
 	</programlisting>
-	
+
 	The properties of Name must then be mapped to columns within Customer's table.
-	
+
 	<programlisting>
 	<![CDATA[
 @Embedded
@@ -32,18 +32,18 @@ public class Name implements java.io.Serializable
 public Name getName()
 {
    return name;
-}	
-	]]>	
+}
+	]]>
 	</programlisting>
 	</para>
 
 	<sect5>
 Building and Running
 	</sect5>
-		
+
 		<note>
 			<para>
-	To build and run the example, make sure you have installed JBoss 5.x. 
+	To build and run the example, make sure you have installed JBoss 5.x.
 	See the <xref linkend="JBossAS5">installation section</xref> for details.
 			</para>
 		</note>
@@ -70,22 +70,22 @@ run:
 	</programlisting>
 
 	<sect5>
-Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
+Maven Users: Make sure the AS is not running.
 	</sect5>
-	
+
 	<programlisting>
-$ mvn clean install
+$ mvn clean install -PRunSingleTutorial
 	</programlisting>
-	
+
 	<sect5>
 View the tables and rows:
 	</sect5>
 	<para>
-		You can view the tables created by JBoss by going to the 
+		You can view the tables created by JBoss by going to the
 		<ulink url="http://localhost:8080/jmx-console/HtmlAdaptor?action=inspectMBean&amp;name=jboss%3Aservice%3DHypersonic%2Cdatabase%3DlocalDB">Hypersonic Service</ulink>,
-		scrolling down to the <literal>startDatabaseManager</literal> button and clicking it.  
+		scrolling down to the <literal>startDatabaseManager</literal> button and clicking it.
 		A Hypersonic SQL window will be minimized, but you can open it up to look at the tables and do queries.
-	
-	</para>	
-	
+
+	</para>
+
 </chapter>

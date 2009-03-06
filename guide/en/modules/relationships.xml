@@ -5,7 +5,7 @@
 		The "entity" tutorial only showed one-to-many and many-to-one relationships.
 		This tutorial will show you one-to-one and many-to-many relationships.
 	</para>
-	
+
 	<sect5>
 		One-to-One :
 		<para>
@@ -20,18 +20,18 @@ public Address getAddress()
 {
    return address;
 }
-			
+
 			]]>
 		</programlisting>
 		<para>
-			<literal>CascadeType.ALL</literal> specifies that when a Customer is created, if there is any 
+			<literal>CascadeType.ALL</literal> specifies that when a Customer is created, if there is any
 			Address association, then that Address will be created as well(<literal>CascadeType.PERSIST</literal>).
 			If the Customer is deleted from persistence storage, the Address will be deleted(<literal>CascadeType.REMOVE</literal>).
 			If a Customer instance is re-attached to persistence storage, any changes to the Address collection will be merged with
 			persistence storage (<literal>CascadeType.MERGE</literal>).
 		</para>
 	</sect5>
-	
+
 	<sect5>
 		Many-To-Many :
 		<para>
@@ -39,11 +39,11 @@ public Address getAddress()
 			and <literal>org.jboss.tutorial.relationships.bean.Flight</literal>. In order to have a many-to-many relationship
 			there needs to be a distinct join table that maps the many-to-many relationship. This is called an association table.
 			 You can have JBoss automatically generate the association table for you, or you can use the <literal>@JoinTable</literal>
-			 annotation to define it yourself. If you use <literal>@JoinTable</literal> it must be defined on both sides of the 
+			 annotation to define it yourself. If you use <literal>@JoinTable</literal> it must be defined on both sides of the
 			 bi-directional relationship.  Let's look at the Customer side of the relationship:
 			 <programlisting>
 			 	<![CDATA[
-@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, mappedBy="customers")			 	
+@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, mappedBy="customers")
 			 	]]>
 			 </programlisting>
 			 <para>
@@ -62,34 +62,34 @@ public Set<Customer> getCustomers()
 {
    return customers;
 }
-				
+
 				]]>
-			</programlisting> 	
+			</programlisting>
 			The database associate table will look like this:
-			
+
 			<programlisting>
 				<![CDATA[
 create table FLIGHT_CUSTOMER_TABLE (
       CUSTOMER_ID integer,
       FLIGHT_ID integer
-   );				
+   );
 				]]>
 			</programlisting>
 		</para>
-		
+
 	</sect5>
-	
+
 	<sect5>
-	
+
 Building and Running
 	<para>
 			<note>
 					<para>
-						To build and run the example, make sure you have installed JBoss 5.x. 
+						To build and run the example, make sure you have installed JBoss 5.x.
 						See the <xref linkend="JBossAS5">installation section</xref> for details.
 					</para>
 			</note>
-			From the command prompt, move to the "relationships" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>		
+			From the command prompt, move to the "relationships" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>
 			<sect5>
 		Ant Users:
 			</sect5>
@@ -109,31 +109,31 @@ run:
      [java] Molly
 
 
-		     
+
 		     ]]>
 			</programlisting>
-		
+
 			<sect5>
-		Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
-			</sect5>
-			
-			<programlisting>
-$ mvn clean install
+Maven Users: Make sure the AS is not running.
+	</sect5>
+
+	<programlisting>
+$ mvn clean install -PRunSingleTutorial
 			</programlisting>
-							
-		</para>
-	</sect5>	
-	
-	<sect5>
-			View the tables and rows:
-	
-		<para>
-			You can view the tables created by JBoss by going to the 
-			<ulink url="http://localhost:8080/jmx-console/HtmlAdaptor?action=inspectMBean&amp;name=jboss%3Aservice%3DHypersonic%2Cdatabase%3DlocalDB">Hypersonic Service</ulink>,
-			scrolling down to the <literal>startDatabaseManager</literal> button and clicking it.  
-			A Hypersonic SQL window will be minimized, but you can open it up to look at the tables and do queries.
-		
+
 		</para>
 	</sect5>
-	
+
+	<sect5>
+			View the tables and rows:
+
+		<para>
+			You can view the tables created by JBoss by going to the
+			<ulink url="http://localhost:8080/jmx-console/HtmlAdaptor?action=inspectMBean&amp;name=jboss%3Aservice%3DHypersonic%2Cdatabase%3DlocalDB">Hypersonic Service</ulink>,
+			scrolling down to the <literal>startDatabaseManager</literal> button and clicking it.
+			A Hypersonic SQL window will be minimized, but you can open it up to look at the tables and do queries.
+
+		</para>
+	</sect5>
+
 </chapter>

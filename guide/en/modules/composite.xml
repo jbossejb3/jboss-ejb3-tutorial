@@ -2,7 +2,7 @@
 <chapter id="Composite_Primary_Keys_for_Entities_in_EJB3">
 	<title>Introduction to Composite Primary Keys and Primary Key Classes</title>
 	<para>
-	The EJB 3.0 specification allows you to define a primary key class as a <literal>@Embeddable</literal> and use it as the 
+	The EJB 3.0 specification allows you to define a primary key class as a <literal>@Embeddable</literal> and use it as the
 	primary key of your Entity bean. One or more properties can be used as members of the primary key for that particular table.
 	This tutorial is an adaptation of the "relationships" tutorial. It adds a primary key class to Customer that holds both
 	the <literal>name</literal> and <literal>id</literal> of the Customer.
@@ -60,13 +60,13 @@ public class CustomerPK implements java.io.Serializable
       return pk.id == id && pk.name.equals(name);
    }
 }
-]]>	
+]]>
 	</programlisting>
-	
+
 	<sect5>
 	Mapping the primary key class:
 	</sect5>
-	
+
 	<para>
 		Open up <literal>org.jboss.tutorial.composite.bean.Customer</literal> and look for the <literal>getPk()</literal> method.
 		This defines the primary key class.
@@ -79,8 +79,8 @@ public CustomerPK getPk()
 }
 		]]>
 		</programlisting>
-		
-		The <literal>org.jboss.tutorial.composite.bean.CustomerPK</literal> class is mapped to 
+
+		The <literal>org.jboss.tutorial.composite.bean.CustomerPK</literal> class is mapped to
 		<literal>org.jboss.tutorial.composite.bean.Customer</literal> just like any other embeddable object.
 		The additional <literal>@EmbeddedId</literal> annotation specifies that it will be the primary key.
 		<note>
@@ -90,17 +90,17 @@ public CustomerPK getPk()
 			</para>
 		</note>
 	</para>
-	
+
 	<sect5>
 		Many To Many
 	</sect5>
 	<para>
-		There is a many-to-many relationship between <literal>org.jboss.tutorial.composite.bean.Customer</literal> and 
+		There is a many-to-many relationship between <literal>org.jboss.tutorial.composite.bean.Customer</literal> and
 		<literal>org.jboss.tutorial.composite.bean.Flight</literal>. In order to have a many-to-many relationship there
 		needs to be a distinct join table that maps the many-to-many relationship. This is called an association table.
   		You need to use the <literal>@JoinTable</literal> annotation to define this join table. The <literal>@JoinTable</literal>
   		must be defined on both sides of the bi-directional relationship. Let's look at the Customer side of the relationship
-  		
+
   		<programlisting>
 	  		<![CDATA[
 @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER, mappedBy="customers")
@@ -116,9 +116,9 @@ public Set<Flight> getFlights()
   		If it is not set, then that side is responsible. So, for this example, the <literal>Flight</literal> Entity is responsible
   		for managing the relation. In this example, we are specifying multiple <literal>inverseJoinColumns</literal>
   		because Customer has a composite primary key.
-  		
+
   		Let's look at the other side of the relationship in Flight:
-  		
+
   		<programlisting>
   			<![CDATA[
 @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
@@ -130,11 +130,11 @@ public Set<Customer> getCustomers()
 }
   			]]>
   		</programlisting>
-  		
+
   		The <literal>Flight</literal> Entity must also define the <literal>@ManyToMany</literal> and <literal>@JoinTable</literal>.
 
 		The database associate table will look like this:
-		
+
 		<programlisting>
 		<![CDATA[
 create table FLIGHT_CUSTOMER_TABLE (
@@ -145,14 +145,14 @@ create table FLIGHT_CUSTOMER_TABLE (
 		]]>
 		</programlisting>
 	</para>
-	
+
 	<sect5>
 Building and Running
 	</sect5>
-		
+
 		<note>
 			<para>
-	To build and run the example, make sure you have installed JBoss 5.x. 
+	To build and run the example, make sure you have installed JBoss 5.x.
 	See the <xref linkend="JBossAS5">installation section</xref> for details.
 			</para>
 		</note>
@@ -180,24 +180,24 @@ run:
 	</programlisting>
 
 	<sect5>
-Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
+Maven Users: Make sure the AS is not running.
 	</sect5>
-	
+
 	<programlisting>
-$ mvn clean install
+$ mvn clean install -PRunSingleTutorial
 	</programlisting>
-	
+
 	<sect5>
 View the tables and rows:
 	</sect5>
 	<para>
-		You can view the tables created by JBoss by going to the 
+		You can view the tables created by JBoss by going to the
 		<ulink url="http://localhost:8080/jmx-console/HtmlAdaptor?action=inspectMBean&amp;name=jboss%3Aservice%3DHypersonic%2Cdatabase%3DlocalDB">Hypersonic Service</ulink>,
-		scrolling down to the <literal>startDatabaseManager</literal> button and clicking it.  
+		scrolling down to the <literal>startDatabaseManager</literal> button and clicking it.
 		A Hypersonic SQL window will be minimized, but you can open it up to look at the tables and do queries.
-	
+
 	</para>
-	
-	
-	
+
+
+
 </chapter>

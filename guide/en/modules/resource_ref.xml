@@ -8,18 +8,18 @@
 		set by the bean deployer. The mapping of the bean local jndi binding and the global binding may be handled
 		via the ejb-jar.xml and jboss.xml deployment descriptors.
 	</para>
-	
+
 	<sect5>
 		ejb-jar.xml :
-		
+
 		<para>
 			Take a look at <literal>META-INF/ejb-jar.xml</literal>. For <literal>ENCBean</literal>, there are 3
 			<literal>&lt;resource-ref&gt;</literal> elements indicating resource reference names and types.
-		
+
 		</para>
-	
+
 	</sect5>
-	
+
 	<sect5>
 		jboss.xml :
 		<para>
@@ -27,11 +27,11 @@
 			3 <literal>&lt;resource-ref&gt;</literal> elements indicating resource reference names and either the global jndi
 			binding via the <literal>&lt;jndi-name&gt;</literal> element or the resource name. Resource managers
 			are used to map resource names to global jndi bindings via the <literal>&lt;resource-managers&gt;</literal> element.
-			
+
 		</para>
-	
+
 	</sect5>
-	
+
 	<sect5>
 		TestENCBean.java :
 		<para>
@@ -40,18 +40,18 @@
 			in the deployment descriptors.
 		</para>
 	</sect5>
-	
+
 	<sect5>
-	
+
 Building and Running
 	<para>
 			<note>
 					<para>
-						To build and run the example, make sure you have installed JBoss 5.x. 
+						To build and run the example, make sure you have installed JBoss 5.x.
 						See the <xref linkend="JBossAS5">installation section</xref> for details.
 					</para>
 			</note>
-			From the command prompt, move to the "resource_ref" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>		
+			From the command prompt, move to the "resource_ref" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>
 			<sect5>
 		Ant Users:
 			</sect5>
@@ -65,18 +65,18 @@ $ ant run
 
 run:
      [java] Successfully accessed bean resource references
-     		     
+
 		     ]]>
 			</programlisting>
-		
+
 			<sect5>
-		Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
-			</sect5>
-			
-			<programlisting>
-$ mvn clean install
+Maven Users: Make sure the AS is not running.
+	</sect5>
+
+	<programlisting>
+$ mvn clean install -PRunSingleTutorial
 			</programlisting>
-							
+
 		</para>
 	</sect5>
 	<para>
@@ -87,9 +87,9 @@ $ mvn clean install
 13:44:09,500 INFO  [TestENCBean] Found mail resource ref
 13:44:09,500 INFO  [TestENCBean] Found jms queue resource ref
 13:44:09,500 INFO  [TestENCBean] Found jms queue resource env ref
-			
+
 			]]>
 		</programlisting>
-	</para>	
-	
+	</para>
+
 </chapter>

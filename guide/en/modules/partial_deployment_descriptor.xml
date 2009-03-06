@@ -11,10 +11,10 @@
       Overview :
 		<para>
 	 		Beans in EJB 3.0 can be specified via source code annotations and/or a deployment descriptor. The deployment descriptor is used to
-	 		augment or override the source code annotations. There are some limitations on which annotations may be overridden, however. 
-	 		The annotations that specify the bean itself (e.g. <literal>@Stateless</literal>, <literal>@Stateful</literal>, 
+	 		augment or override the source code annotations. There are some limitations on which annotations may be overridden, however.
+	 		The annotations that specify the bean itself (e.g. <literal>@Stateless</literal>, <literal>@Stateful</literal>,
 	 		<literal>@MessageDriven</literal>, <literal>@Service</literal>,  <literal>@Consumer</literal>) cannot be overridden.
-	 		The EJB 3.0 <literal>ejb-jar.xml</literal> deployment descriptor xsd specifies the majority of tags as optional in order to 
+	 		The EJB 3.0 <literal>ejb-jar.xml</literal> deployment descriptor xsd specifies the majority of tags as optional in order to
 	 		support annotation augmentation and overrides. The deployment descriptor does not need to specify all of the required information,
 	 		just that additional information to override or augment the source code annotations.
       </para>
@@ -25,10 +25,10 @@
          	This section contains examples of complete and partial deployment descriptors for completely specifying or overriding
          	specific behaviors of EJBs.
       	</para>
-      	<sect5>  
+      	<sect5>
          	Complete deployment descriptor :
          	<para>
-            	Take a look at the <literal>META-INF/ejb-jar.xml</literal>. The ejb-jar.xml in this tutorial configures the <literal>CompleteXMLDD</literal> 
+            	Take a look at the <literal>META-INF/ejb-jar.xml</literal>. The ejb-jar.xml in this tutorial configures the <literal>CompleteXMLDD</literal>
             	bean only through the deployment descriptor. The <literal>PartialXMLDD</literal> bean is configured through the deployment descriptor
             	as well as through annotations.
 				<programlisting>
@@ -72,7 +72,7 @@
          	<lifecycle-callback-class>org.jboss.tutorial.partial_deployment_descriptor.bean.ExternalCallbackListener</lifecycle-callback-class>
          	<lifecycle-callback-method>postConstruct</lifecycle-callback-method>
          </post-construct>
-         
+
          <security-identity>
             <run-as>
                <role-name>admin</role-name>
@@ -98,7 +98,7 @@
          	</bean-method>
          </remove-method>
          <transaction-type>Container</transaction-type>
-         
+
          <env-entry>
             <env-entry-name>id</env-entry-name>
             <env-entry-type>java.lang.String</env-entry-type>
@@ -187,28 +187,28 @@
             <method-name>uncallableMethod</method-name>
          </method>
       </exclude-list>
-      
+
    </assembly-descriptor>
-        
+
 </ejb-jar>
 
 			]]>
 		</programlisting>
        </para>
       </sect5>
-      <sect5>  
+      <sect5>
          Transactions :
          <para>
-            The following <literal>ejb-jar.xml</literal> file overrides any <literal>@TransactionAttribute</literal> annotations for the 
-            <literal>greetWithNotSupportedTransaction</literal> method of the <literal>CompleteXMLDD</literal> bean and adds a 
+            The following <literal>ejb-jar.xml</literal> file overrides any <literal>@TransactionAttribute</literal> annotations for the
+            <literal>greetWithNotSupportedTransaction</literal> method of the <literal>CompleteXMLDD</literal> bean and adds a
             <literal>@TransactionAttribute</literal> annotation for <literal>NOT SUPPORTED</literal>.
             <programlisting>
             	<![CDATA[
 @TransactionAttribute (TransactionAttributeType.REQUIRES_NEW)
 public String greetWithNotSupportedTransaction(String name)
 {
-            	
-...            	
+
+...
 <container-transaction>
    <method>
       <ejb-name>CompleteXMLDD</ejb-name>
@@ -220,14 +220,14 @@ public String greetWithNotSupportedTransaction(String name)
             ]]></programlisting>
          </para>
       </sect5>
-      <sect5>  
+      <sect5>
          References :
          <para>
-            The following <literal>ejb-jar.xml</literal> file creates a EJB reference and injects the EJB to the injection 
+            The following <literal>ejb-jar.xml</literal> file creates a EJB reference and injects the EJB to the injection
             target of the <literal>partialXMLDDBean</literal> member variable.
             <programlisting><![CDATA[
 <ejb-name>CompleteXMLDD</ejb-name>
-...            
+...
 <ejb-ref>
    <ejb-ref-name>ejb/PartialXMLDD</ejb-ref-name>
    <ejb-ref-type>Session</ejb-ref-type>
@@ -241,15 +241,15 @@ public String greetWithNotSupportedTransaction(String name)
             ]]></programlisting>
          </para>
       </sect5>
-      <sect5>  
+      <sect5>
          Callbacks :
          <para>
-            The following <literal>ejb-jar.xml</literal> file adds a <literal>@PostConstruct</literal> annotation to the 
+            The following <literal>ejb-jar.xml</literal> file adds a <literal>@PostConstruct</literal> annotation to the
             <literal>postConstruct</literal> method of the <literal>CompleteXMLDD</literal> bean.
             <programlisting>
             	<![CDATA[
-<ejb-name>CompleteXMLDD</ejb-name>            	
-...            	
+<ejb-name>CompleteXMLDD</ejb-name>
+...
 <post-construct>
 	<lifecycle-callback-class>org.jboss.tutorial.partial_deployment_descriptor.bean.ExternalCallbackListener</lifecycle-callback-class>
 	<lifecycle-callback-method>postConstruct</lifecycle-callback-method>
@@ -260,18 +260,18 @@ public String greetWithNotSupportedTransaction(String name)
          </para>
       </sect5>
    </sect5>
-   
+
    	<sect5>
-	
+
 Building and Running
 	<para>
 			<note>
 					<para>
-						To build and run the example, make sure you have installed JBoss 5.x. 
+						To build and run the example, make sure you have installed JBoss 5.x.
 						See the <xref linkend="JBossAS5">installation section</xref> for details.
 					</para>
 			</note>
-			From the command prompt, move to the "partial_deployment_descriptor" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>		
+			From the command prompt, move to the "partial_deployment_descriptor" folder under the <xref linkend="EJB3_TUTORIAL_HOME">EJB3_TUTORIAL_HOME</xref>
 			<sect5>
 		Ant Users:
 			</sect5>
@@ -288,7 +288,7 @@ run:
      [java] Hello, jai. I am the CompleteXMLDDBean. I have the following resources with me:
      [java] Timer Service : org.jboss.ejb3.timerservice.jboss.TimerServiceFacade@184a6b9
      [java] PartialXMLDD Bean : Proxy to jboss.j2ee:jar=jboss-ejb3-tutorial-partial_deployment_descriptor.jar,name=PartialXMLDD,service=EJB3 implementing [interface org.jboss.ejb3.proxy.intf.EjbProxy, interface org.jboss.tutorial.partial_deployment_descriptor.bean.PartialXMLDD, interface org.jboss.ejb3.proxy.intf.StatefulSessionProxy, interface org.jboss.ejb3.proxy.intf.SessionProxy]
-     [java] 
+     [java]
      [java] Welcome jai, you are in a method with no transaction supported
      [java] Welcome jai, you are in a method with a REQUIRED transaction
      [java] Bye, jai. Hope to see you again
@@ -305,18 +305,18 @@ run:
 
 		     ]]>
 			</programlisting>
-		
+
 			<sect5>
-		Maven Users: <xref linkend="Maven_Users_TODO">TODO</xref>
-			</sect5>
-			
-			<programlisting>
-$ mvn clean install
+Maven Users: Make sure the AS is not running.
+	</sect5>
+
+	<programlisting>
+$ mvn clean install -PRunSingleTutorial
 			</programlisting>
-							
+
 		</para>
-	</sect5>	
-   
-   
+	</sect5>
+
+
 </chapter>
 
