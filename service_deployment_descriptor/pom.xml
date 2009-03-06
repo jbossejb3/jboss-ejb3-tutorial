@@ -23,11 +23,17 @@
 
 
   <artifactId>jboss-ejb3-tutorial-service_deployment_descriptor</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
   <name>@Service Bean (JBoss specific) using deployment descriptors</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
   <description>
     Tutorial about configuring JBoss specific @Service beans through deployment descriptors
   </description>
+
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-service_deployment_descriptor-1.1.0</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-service_deployment_descriptor-1.1.0</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-service_deployment_descriptor-1.1.0</url>
+  </scm>
 </project>
