@@ -23,11 +23,17 @@
 
 
   <artifactId>jboss-ejb3-tutorial-jndibinding</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
   <name>JNDI binding for beans</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
   <description>
     Tutorial for binding EJB to a specific JNDI name
   </description>
+
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-jndibinding-1.1.0</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-jndibinding-1.1.0</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-jndibinding-1.1.0</url>
+  </scm>
 </project>
