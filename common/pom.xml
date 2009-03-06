@@ -41,7 +41,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.ejb3</groupId>
   <artifactId>jboss-ejb3-tutorial-common</artifactId>
-  <version>0.1.1-SNAPSHOT</version>
+  <version>1.1.0</version>
   <packaging>pom</packaging>
   <name>JBoss EJB3 Tutorial Common Parent POM</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
@@ -384,4 +384,10 @@
             <type>pom</type>
         </dependency>
 	</dependencies>
+
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-common-1.1.0</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-common-1.1.0</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-common-1.1.0</url>
+  </scm>
 </project>
