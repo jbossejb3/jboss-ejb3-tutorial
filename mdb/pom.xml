@@ -24,11 +24,17 @@
 
 
 	<artifactId>jboss-ejb3-tutorial-mdb</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 	<name>Message Driven Beans in EJB3</name>
 	<url>http://labs.jboss.com/jbossejb3/</url>
 	<description>
     	Tutorial about using Message driven beans in EJB3
   	</description>
+
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-mdb-1.1.0</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-mdb-1.1.0</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-mdb-1.1.0</url>
+  </scm>
 </project>
