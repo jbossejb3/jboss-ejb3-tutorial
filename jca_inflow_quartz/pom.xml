@@ -23,11 +23,17 @@
 	
 
 	<artifactId>jboss-ejb3-tutorial-jca_inflow_quartz</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 	<name>Quartz scheduler integration</name>
 	<url>http://labs.jboss.com/jbossejb3/</url>
 	<description>
     	Tutorial about integrating quartz with a EJB3 MDB
   	</description>
+
+  <scm>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-jca_inflow_quartz-1.1.0</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-jca_inflow_quartz-1.1.0</developerConnection>
+    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-jca_inflow_quartz-1.1.0</url>
+  </scm>
 </project>
