@@ -8,8 +8,8 @@
 		that the tutorial deploys without any errors -->
 		<jboss.ejb3.tutorial.client.skip>true</jboss.ejb3.tutorial.client.skip>
 	  	<!--  Versions -->
-	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_webapp>0.1.0</version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_webapp>
-	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_ejb3app>0.1.0</version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_ejb3app>
+	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_webapp>1.1.0</version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_webapp>
+	    <version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_ejb3app>1.1.0</version.org.jboss.ejb3_jboss-ejb3-tutorial-enterprise_ejb3app>
   	</properties>
   	
   
