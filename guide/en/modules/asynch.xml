@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <chapter id="Asynchronous_Invocations">
-
+<title>Asynchronous proxy for EJBs - JBoss specific extension to EJB3</title>
       <para>
          A JBoss extension to EJB 3.0 is that from the remote or local interface of a stateful session bean,
          stateless session bean or service bean you can obtain an asynchronous proxy. Methods called
