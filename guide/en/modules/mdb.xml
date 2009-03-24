@@ -16,7 +16,7 @@
 	<para>
 		The following is the list of standard Activation Config Properties available from the JCA 1.5 specification.
 		Also listed are the respective types and default values where defined.
-		<informaltable frame='none'>
+		<informaltable frame='all'>
 			<tgroup cols='4' colsep="1" rowsep="1">
 				<colspec colwidth='0.5in'/>
 				<thead>
@@ -92,9 +92,10 @@
 		</informaltable>
 		The following is the list of Activation Config Properties available as JBoss extensions.
 
-		<informaltable frame='none'>
+		<informaltable frame='all'>
 			<tgroup cols='4' colsep="1" rowsep="1">
 				<colspec colwidth='0.5in'/>
+                
 				<thead>
 					<row>
   						<entry>Name</entry>
@@ -258,8 +259,19 @@
 						<entry>int</entry>
 						<entry>Time in seconds for the transaction timeout</entry>
 						<entry>No</entry>
-						<entry>Ddefault is the timeout set for the resource manager</entry>
+						<entry>Default is the timeout set for the resource manager</entry>
 					</row>
+                    
+                    <row>
+                        <entry>DeliveryActive</entry>
+                        <entry>boolean</entry>
+                        <entry>Whether the MDB should make the subscription at initial deployment or wait for start() or stopDelivery()
+                        on the corresponding MBean. You can set this to false if you want to prevent messages from being delivered
+                        to the MDB (which is still starting) during server startup</entry>
+                        <entry>No</entry>
+                        <entry>true</entry>
+                    </row>
+                    
 
 				</tbody>
 			</tgroup>
