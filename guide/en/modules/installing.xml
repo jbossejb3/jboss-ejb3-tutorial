@@ -13,8 +13,8 @@ Unix:    $ export JBOSS_HOME=&lt;where your jboss 5.x distribution is&gt;
 Windows: $ set JBOSS_HOME=&lt;where your jboss 5.x distribution is&gt;
 				</programlisting>
 
-At the time of writing this tutorial, the latest version of EJB3 Installer was used. To run these examples you need JBossAS 5.0.1 GA or higher version (if available). JBossAS can be downloaded from <ulink url="http://www.jboss.org/jbossas/downloads/">here</ulink>.
-Before running the tutorials, you will have to use the EJB3 Installer on the AS. The exact steps can be found at <![CDATA[ http://www.jboss.com/index.html?op=viewtopic&t=149232&module=bb]]>
+To run these examples you need JBossAS 5.0.1 GA or higher version (if available). JBossAS can be downloaded from <ulink url="http://www.jboss.org/jbossas/downloads/">here</ulink>.
+
 			</para>
 
 		</section>
