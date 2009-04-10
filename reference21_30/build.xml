@@ -40,6 +40,11 @@
 		<fileset dir="${jboss.home}/common/lib">
 	   			<include name="ejb3-persistence.jar"/>
 	   	</fileset>
+	<!-- javax.servlet.* -->
+	<fileset dir="${jboss.home}/common/lib">
+		<include name="servlet-api.jar"/>
+	</fileset>
+
 
       	<pathelement location="${ejb21app.build.classes.dir}"/>
    		<pathelement location="${ejb3app.build.classes.dir}"/>

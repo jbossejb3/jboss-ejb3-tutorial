@@ -30,6 +30,11 @@
       <fileset dir="${jboss.home}/client">
          <include name="**/jbossall-client.jar"/>
       </fileset>
+      <!-- javax.servlet.* -->
+      <fileset dir="${jboss.home}/common/lib">
+	      <include name="servlet-api.jar"/>
+      </fileset>
+
       <pathelement location="${ejbapp.build.classes.dir}"/>
    	  <pathelement location="${webapp.build.classes.dir}"/>
    </path>
