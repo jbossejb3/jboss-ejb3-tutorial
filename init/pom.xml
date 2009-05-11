@@ -69,6 +69,8 @@
 			                  	<jvmArg>-Dorg.jboss.resolver.warning=true</jvmArg>
 			                  	<jvmArg>-Dsun.rmi.dgc.client.gcInterval=3600000</jvmArg>
 			                  	<jvmArg>-Dsun.rmi.dgc.server.gcInterval=3600000</jvmArg>
+						<!-- Temporary, till AS boots without this property JBAS-6744 -->
+						<jvmArg>-Dxb.builder.useUnorderedSequence=true</jvmArg>
 					</jvmArgs>
 	                  		<jboss.test.run>true</jboss.test.run>
 	                	</configuration>
