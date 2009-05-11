@@ -39,7 +39,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.ejb3</groupId>
   <artifactId>jboss-ejb3-tutorial-build</artifactId>
-  <version>1.1.1</version>
+  <version>1.1.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>JBoss EJB3 Tutorial Build</name>
   <url>http://labs.jboss.com/jbossejb3/</url>
@@ -88,10 +88,4 @@
       
     </dependencies>
   </dependencyManagement>
-
-  <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-build-1.1.1</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-build-1.1.1</developerConnection>
-    <url>http://anonsvn.jboss.org/repos/jbossas/projects/ejb3/tags/jboss-ejb3-tutorial-build-1.1.1</url>
-  </scm>
 </project>
