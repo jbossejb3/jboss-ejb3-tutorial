@@ -22,7 +22,7 @@
 	    <jboss.server.config>all</jboss.server.config>
 
 
-      <version.org.jboss.jbossas_jboss-as-client>5.0.1.GA</version.org.jboss.jbossas_jboss-as-client>
+      <version.org.jboss.jbossas_jboss-as-client>5.1.0.CR1</version.org.jboss.jbossas_jboss-as-client>
 
   	</properties>
   <!-- Parent - The jboss-ejb3-build will act as a parent
