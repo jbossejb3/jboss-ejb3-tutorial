@@ -61,6 +61,7 @@
          </fileset>
          <fileset dir=".">
             <include name="META-INF/ssl-service.xml"/>
+			<include name="META-INF/jboss.xml"/>             
             <include name="localhost.keystore"/>
             <include name="*.properties"/>
          </fileset>

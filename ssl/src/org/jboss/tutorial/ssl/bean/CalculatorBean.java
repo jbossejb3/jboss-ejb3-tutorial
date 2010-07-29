@@ -27,13 +27,11 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
-import org.jboss.ejb3.annotation.RemoteBinding;
-import org.jboss.ejb3.annotation.RemoteBindings;
 import org.jboss.ejb3.annotation.SecurityDomain;
 
 @Stateless
-@RemoteBindings(
-{@RemoteBinding(clientBindUrl = "sslsocket://0.0.0.0:3843"), @RemoteBinding(jndiBinding = "CalculatorNormal")})
+//@RemoteBindings(
+//{@RemoteBinding(clientBindUrl = "sslsocket://0.0.0.0:3843"), @RemoteBinding(jndiBinding = "CalculatorNormal")})
 @SecurityDomain("other")
 public class CalculatorBean implements Calculator
 {
